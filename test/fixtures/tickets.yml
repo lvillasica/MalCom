@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ticket_name: 
+  ticket_description: 
+  status: 
+  priority: 
+  assigned_to: 
+  logged_time: 
+  created_by: 
+  tracker_type: 
+  project_id: 1
+
+two:
+  ticket_name: 
+  ticket_description: 
+  status: 
+  priority: 
+  assigned_to: 
+  logged_time: 
+  created_by: 
+  tracker_type: 
+  project_id: 1
