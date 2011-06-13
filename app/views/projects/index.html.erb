@@ -1,6 +1,6 @@
 <% if current_user.admin? %>
   <%= link_to 'Project Admin Page', admin_projects_path %>
-  <%= link_to 'User Admin Page', '#' %> 
+  <%= link_to 'User Admin Page', users_path %> 
 <% end %>
 <% if user_signed_in? %>
 <ul>
