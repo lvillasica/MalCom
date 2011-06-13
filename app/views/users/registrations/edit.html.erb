@@ -46,6 +46,10 @@
     <%= f.label :status %><br />
     <%= f.select :status, options_for_select(['Active', 'Inactive', 'Locked']) %>
   </div>
+  
+  <% unless @resource.admin? %>
+    <%= f.collection_select :role_id, Role.all, :id, :position %>
+  <% end %>
 
   <p><%= f.submit "Update" %></p>
 <% end %>
