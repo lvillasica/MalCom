@@ -1,0 +1,50 @@
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+  
+  <%= f.label :password_confirmation %>
+  <%= f.text_field :password_confirmation %>
+  
+  <%= f.label :admin %>
+  <%= f.check_box :admin %>
+  
+  <br/>
+  
+  <%= f.collection_select :role_id, Role.all, :id, :position unless @user.admin? if Role.nil? %>
+  
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :middle_name %><br />
+    <%= f.text_field :middle_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :birthdate %><br />
+    <%= f.date_select :birthdate %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.select :status, options_for_select(['Active', 'Inactive', 'Locked']) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>
+
+<%#= render :partial => "devise/shared/links" %>

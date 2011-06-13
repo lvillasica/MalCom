@@ -1,5 +1,19 @@
 MalCom::Application.routes.draw do
-  devise_for :users
+
+  devise_for :users,  :controllers => { :registrations => "users/registrations" }
+  devise_for :users do
+    match '/login' => 'devise/sessions#new'
+    match '/logout' => 'devise/sessions#destroy'
+  end
+  
+  resources :users#, :controller => 'user'
+  resources :projects 
+  get 'admin/projects', :to => 'projects#projects'
+  
+  resources :roles
+  #resources :projects
+  
+  root :to => 'projects#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

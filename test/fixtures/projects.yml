@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  project_name: 
-  project_description: 
+  project_name: MyString
+  description: MyText
   status: MyString
 
 two:
-  project_name: 
-  project_description: 
+  project_name: MyString
+  description: MyText
   status: MyString

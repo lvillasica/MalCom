@@ -1,0 +1,5 @@
+links to Projects
+<% if current_user.admin? %>
+  links to Project Admin Page and User Admin Page
+  <%= link_to 'User Admin Page', users_path %>
+<% end %>

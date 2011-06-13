@@ -1,0 +1,13 @@
+<% if current_user.admin? %>
+  <%= link_to 'Project Admin Page', admin_projects_path %>
+  <%= link_to 'User Admin Page', '#' %> 
+<% end %>
+<% if user_signed_in? %>
+<ul>
+  <% @projects.each do |project| %>
+    <li><%= project.project_name %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= link_to_if(can?(:create, Project), 'Add Project', new_project_path) {} %>

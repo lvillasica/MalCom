@@ -54,7 +54,7 @@ Devise.setup do |config|
   config.stretches = 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "5c2c3a5ae399e784f674c8182760d5ecc06315367c37974e54f8958c396ff5c6b3b397158cbf31abc030cc4c36749ed8a9de17bd9dd145c7fdab33b0da580b91"
+  # config.pepper = "eaae68eaf9e94d8923fb4cdb592d0a397a755670c0624a92d826b192df3251711939e12dd094fa29a8cd7d5e9f28683edb985e003819a540eeb58014a674dd23"
 
   # ==> Configuration for :confirmable
   # The time you want to give your user to confirm his account. During this time
@@ -91,7 +91,7 @@ Devise.setup do |config|
   # config.password_length = 6..128
 
   # Regex to use to validate the email address
-   config.email_regexp = /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
+  # config.email_regexp = /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
@@ -102,7 +102,7 @@ Devise.setup do |config|
   # Defines which strategy will be used to lock an account.
   # :failed_attempts = Locks an account after a number of failed attempts to sign in.
   # :none            = No lock strategy. You should handle locking by yourself.
-   config.lock_strategy = :failed_attempts
+  config.lock_strategy = :failed_attempts
 
   # Defines which key will be used when locking and unlocking an account
   # config.unlock_keys = [ :email ]
@@ -112,7 +112,7 @@ Devise.setup do |config|
   # :time  = Re-enables login after a certain amount of time (see :unlock_in below)
   # :both  = Enables both strategies
   # :none  = No unlock strategy. You should handle unlocking by yourself.
-  # config.unlock_strategy = :both
+  config.unlock_strategy = :none
 
   # Number of authentication tries before locking an account if lock_strategy
   # is failed attempts.

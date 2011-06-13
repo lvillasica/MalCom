@@ -5,11 +5,12 @@ gem 'rails', '3.0.7'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem "will_paginate", "~> 3.0.pre2"
+gem 'will_paginate', '~> 3.0.pre2'
 gem 'annotate-models'
 gem 'mysql2', '<0.3.0'
 gem 'rake','0.8.7'
 gem 'devise'
+gem 'cancan'
 gem "exception_notification", :git => "git://github.com/rails/exception_notification.git", :require => 'exception_notifier'
 
 # Use unicorn as the web server

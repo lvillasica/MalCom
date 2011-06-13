@@ -1,0 +1,55 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+    
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+    
+  <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+  <%= f.password_field :current_password %>
+  
+  <%= f.label :admin %>
+  <%= f.check_box :admin %>
+  
+  <br/>
+  
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :middle_name %><br />
+    <%= f.text_field :middle_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :birthdate %><br />
+    <%= f.date_select :birthdate %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.select :status, options_for_select(['Active', 'Inactive', 'Locked']) %>
+  </div>
+
+  <p><%= f.submit "Update" %></p>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+
+<%= link_to "Back", :back %>

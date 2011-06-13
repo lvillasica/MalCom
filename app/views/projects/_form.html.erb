@@ -1,0 +1,35 @@
+<%= form_for(@project) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+
+  <%= f.label :project_name %>
+  <%= f.text_field :project_name %>
+  
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  
+  <%= f.label :status %>
+  <%= f.select :status, options_for_select(['Active', 'Close']) %>
+  
+  <%= f.label 'Members' %>
+  <% User.all.each do |user| %>
+    <%= f.label user.email %>
+    <%= check_box_tag "project[user_ids][]", user.id, @project.users.include?(user) %>
+  <% end %>
+  
+  <br/>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>

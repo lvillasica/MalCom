@@ -1,0 +1,63 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+  
+  <%= f.label :password_confirmation %>
+  <%= f.text_field :password_confirmation %>
+  
+  <% unless current_user.admin? %>
+    <%= f.label :admin %>
+    <%= f.check_box :admin %>
+  <% end %>
+  
+  <br/>
+  
+  <%# unless @user.admin? %>
+  <%= f.collection_select :role_id, Role.all, :id, :position %>
+  <%# end %>
+  
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :middle_name %><br />
+    <%= f.text_field :middle_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :birthdate %><br />
+    <%= f.date_select :birthdate %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.select :status, options_for_select(['Active', 'Inactive', 'Locked']) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>

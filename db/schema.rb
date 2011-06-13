@@ -10,42 +10,41 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110610083210) do
-
-  create_table "comments", :force => true do |t|
-    t.integer  "ticket_id"
-    t.text     "comment"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110613063230) do
 
   create_table "projects", :force => true do |t|
     t.string   "project_name"
-    t.text     "project_description"
+    t.text     "description"
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "tags", :force => true do |t|
-    t.string   "label"
-    t.integer  "project_id"
-    t.integer  "ticket_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "projects_users", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "project_id"
   end
 
-  create_table "tickets", :force => true do |t|
-    t.string   "ticket_name"
-    t.text     "ticket_description"
-    t.string   "status"
-    t.string   "priority"
-    t.integer  "assigned_to"
-    t.time     "logged_time"
-    t.integer  "created_by"
-    t.string   "tracker_type"
-    t.integer  "project_id"
+  create_table "roles", :force => true do |t|
+    t.string   "position"
+    t.boolean  "can_create_project"
+    t.boolean  "can_update_project"
+    t.boolean  "can_delete_project"
+    t.boolean  "can_read_project"
+    t.boolean  "can_create_ticket"
+    t.boolean  "can_read_ticket"
+    t.boolean  "can_update_ticket"
+    t.boolean  "can_delete_ticket"
+    t.boolean  "can_create_comment"
+    t.boolean  "can_read_comment"
+    t.boolean  "can_delete_comment"
+    t.boolean  "can_create_tag"
+    t.boolean  "can_read_tag"
+    t.boolean  "can_update_tag"
+    t.boolean  "can_delete_tag"
+    t.boolean  "can_add_member"
+    t.boolean  "can_remove_member"
+    t.boolean  "can_assign_ticket"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -61,10 +60,6 @@ ActiveRecord::Schema.define(:version => 20110610083210) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "password_salt"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
     t.integer  "failed_attempts",                       :default => 0
     t.string   "unlock_token"
     t.datetime "locked_at"
@@ -74,6 +69,8 @@ ActiveRecord::Schema.define(:version => 20110610083210) do
     t.string   "middle_name"
     t.date     "birthdate"
     t.string   "status"
+    t.integer  "role_id"
+    t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

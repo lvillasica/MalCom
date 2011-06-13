@@ -1,0 +1,9 @@
+<ul>
+  <% @projects.each do |project| %>
+    <li>
+      <%= project.project_name %>
+      <%= link_to_if(can?(:edit, project), "Edit", edit_project_path(project)) %>
+      <%= link_to_if(can?(:destroy, project), "Delete", project, :confirm => "Delete?", :method => :delete) %>
+    </li>
+  <% end %>
+</ul>

@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-MalCom::Application.config.secret_token = '25feeaab5b4ee8be44890c8a0a41aa57d26b6edfcfabf8b2c8f3464a5275c1c9cf9b62f17b6ec93d2477cf598ac4cdc5c2ec48d375f1471adc26f172e3988aba'
+MalCom::Application.config.secret_token = 'e9b7b75638d82a83ccdff3d4f2295e2a08667601e2a6f5efaf197d56ffed7fac54b19ce5324f7cbdd7e4eb81957c484d73314e25f7106f9da88f59d29b1d5d28'
