@@ -1,5 +1,8 @@
 class RolesController < ApplicationController
 
+  before_filter :get_role, :except => [:index, :new, :create]
+  load_and_authorize_resource
+  
   def index
     @roles = Role.all
   end
@@ -15,22 +18,24 @@ class RolesController < ApplicationController
   end
   
   def show
-    @role = Role.find(params[:id])
   end
   
   def edit
-    @role = Role.find(params[:id])
   end
   
   def update
-    @role = Role.find(params[:id])
     @role.update_attributes(params[:role])
     redirect_to roles_path
   end
   
   def destroy
-    @role = Role.find(params[:id])
     @role.destroy
     redirect_to roles_path
+  end
+  
+  private
+  
+  def get_role
+    @role = Role.find(params[:id])
   end
 end

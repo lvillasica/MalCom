@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
 
   before_filter :authenticate_user!
+  before_filter :get_project, :except => [:index, :new, :create, :projects, :remove_member]
   load_and_authorize_resource
   
   def index
@@ -12,12 +13,10 @@ class ProjectsController < ApplicationController
   end
 
   def members
-    @project = Project.find(params[:id])
     @members = @project.users
   end
 
   def overview
-    @project = Project.find(params[:id])
   end
   
   def create
@@ -32,17 +31,14 @@ class ProjectsController < ApplicationController
   end
   
   def edit
-    @project = Project.find(params[:id])
   end
   
   def update
-    @project = Project.find(params[:id])  
     @project.update_attributes(params[:project])
     redirect_to admin_projects_path
   end
     
   def destroy
-    @project = Project.find(params[:id])
     @project.destroy
     redirect_to admin_projects_path
   end
@@ -56,6 +52,12 @@ class ProjectsController < ApplicationController
     end    
   
     redirect_to @project
+  end
+  
+  private
+  
+  def get_project
+    @project = Project.find(params[:id])
   end
 
 end

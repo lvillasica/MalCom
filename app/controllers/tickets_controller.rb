@@ -26,7 +26,7 @@ class TicketsController < ApplicationController
   
   def update
     @ticket.update_attributes(params[:ticket])
-    redirect_to project_tickets_path(@project)
+    redirect_to @project
   end
   
   def destroy

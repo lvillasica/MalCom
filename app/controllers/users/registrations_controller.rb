@@ -9,7 +9,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create 
     build_resource
     if resource.save
-      #User.find(resource.id).send_confirmation_instructions
       redirect_to users_url
     end
   end
