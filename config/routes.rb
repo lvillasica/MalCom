@@ -11,6 +11,7 @@ MalCom::Application.routes.draw do
     member do
       get 'overview', :to => 'projects#overview'
       get 'members', :to => 'projects#members'
+      delete 'members', :to => 'projects#remove_member'
     end
     resources :tickets
   end

@@ -3,7 +3,7 @@
 <% @members.each do |member| %>
   <tr>
     <td><%= member.email %></td>
-    <td><%= link_to "Remove from project", "#" %></td
+    <td><%= link_to "Remove from project", members_project_path(@project, :user_id => member), :method => :delete%></td>
   </tr>
 <% end %>
 </table>
