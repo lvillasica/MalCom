@@ -1,0 +1,31 @@
+body{
+  margin: 0;
+}
+#header{
+  height: 50px;
+  margin: 0;
+  padding: 10px;
+}
+#header_content{
+  padding: 10px;
+  margin: auto;
+  width: 70%;
+}
+#title{
+  font-weight: bold;
+  font-size: 20pt;
+  font-family: sans-serif;
+}
+#right_nav{
+  float: right;
+}
+#right_nav a{
+  padding: 4px;
+  text-decoration: none;
+}
+#main{
+  padding:5px;
+  margin: auto;
+  width: 70%;
+}
+

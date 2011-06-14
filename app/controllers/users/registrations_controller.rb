@@ -9,6 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create 
     build_resource
     if resource.save
+      #User.find(resource.id).send_confirmation_instructions
       redirect_to users_url
     end
   end
@@ -19,7 +20,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       redirect_to users_url
     else
       clean_up_passwords(@resource)
-      respond_with_navigational(resource){ render_with_scope :edit }
+      respond_with_navigational(@resource){ render_with_scope :edit }
     end
   end
 

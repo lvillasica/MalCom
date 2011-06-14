@@ -7,16 +7,29 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-  <div>
+<div id="header">
+  <div id="header_content">
+  <span id="title">
+    MalCom
+  </span>
+  <span id="right_nav">
+    <% if current_user.admin? %>
+    <%= link_to "Home", projects_path %>
+    <span id="admin_nav">
+      <%= link_to 'Project Admin Page', admin_projects_path %>
+      <%= link_to 'User Admin Page', users_path %>
+    </span> 
+    <% end %>
     <% if user_signed_in? %>
       <%= link_to 'Logout', logout_url %>
     <% else %>
       <%= link_to 'Login', login_url %>
     <% end %>
+  </span>
   </div>
-
+</div>
+<div id="main">
 <%= yield %>
-
+</div>
 </body>
 </html>

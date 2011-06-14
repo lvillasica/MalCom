@@ -1,11 +1,8 @@
-<% if current_user.admin? %>
-  <%= link_to 'Project Admin Page', admin_projects_path %>
-  <%= link_to 'User Admin Page', users_path %> 
-<% end %>
+
 <% if user_signed_in? %>
 <ul>
   <% @projects.each do |project| %>
-    <li><%= project.project_name %></li>
+    <li><%= link_to project.project_name, project_path(project) %></li>
   <% end %>
 </ul>
 <% end %>

@@ -28,9 +28,7 @@
   
   <br/>
   
-  <%# unless @user.admin? %>
   <%= f.collection_select :role_id, Role.all, :id, :position %>
-  <%# end %>
   
   <div class="field">
     <%= f.label :username %><br />
@@ -61,3 +59,4 @@
   </div>
   
 <% end %>
+
