@@ -12,6 +12,7 @@ gem 'rake','0.8.7'
 gem 'devise'
 gem 'cancan'
 gem "exception_notification", :git => "git://github.com/rails/exception_notification.git", :require => 'exception_notifier'
+gem "jquery-rails"
 
 # Use unicorn as the web server
 # gem 'unicorn'

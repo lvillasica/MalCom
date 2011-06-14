@@ -10,6 +10,10 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
   end
+
+  def overview
+    @project = Project.find(params[:id])
+  end
   
   def create
     @project = Project.new(params[:project])

@@ -7,7 +7,11 @@ MalCom::Application.routes.draw do
   end
   
   resources :users#, :controller => 'user'
-  resources :projects 
+  resources :projects do
+    member do
+      get 'overview', :to => 'projects#overview'
+    end
+  end
   get 'admin/projects', :to => 'projects#projects'
   
   resources :roles
