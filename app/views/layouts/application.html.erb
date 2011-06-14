@@ -22,9 +22,18 @@
     <% end %>
     <% if user_signed_in? %>
       <%= link_to 'Logout', logout_url %>
+      <select id="proj_list">
+      <option>Select Project</option>
+      <% current_user.projects.each do |project| %>
+      <option value="<%= project_path(project) %>" >
+        <%= project.project_name %>
+      </option>
+      <% end %>
+      </select>
     <% else %>
       <%= link_to 'Login', login_url %>
     <% end %>
+    
   </span>
   </div>
 </div>

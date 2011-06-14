@@ -11,6 +11,11 @@ class ProjectsController < ApplicationController
     @project = Project.new
   end
 
+  def members
+    @project = Project.find(params[:id])
+    @members = @project.users
+  end
+
   def overview
     @project = Project.find(params[:id])
   end

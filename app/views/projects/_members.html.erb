@@ -1,0 +1,9 @@
+<h3>Members</h3>
+<table>
+<% @members.each do |member| %>
+  <tr>
+    <td><%= member.email %></td>
+    <td><%= link_to "Remove from project", "#" %></td
+  </tr>
+<% end %>
+</table>

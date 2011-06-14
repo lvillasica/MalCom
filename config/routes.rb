@@ -10,6 +10,7 @@ MalCom::Application.routes.draw do
   resources :projects do
     member do
       get 'overview', :to => 'projects#overview'
+      get 'members', :to => 'projects#members'
     end
     resources :tickets
   end
