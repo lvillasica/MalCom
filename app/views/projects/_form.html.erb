@@ -11,25 +11,28 @@
     </div>
   <% end %>
   
-
-  <%= f.label :project_name %>
+<p class="fields">
+  <%= f.label :project_name %><br />
   <%= f.text_field :project_name %>
-  
-  <%= f.label :description %>
+</p>
+<p class="fields">
+  <%= f.label :description %><br />
   <%= f.text_area :description %>
-  
-  <%= f.label :status %>
+</p>  
+<p class="fields">
+  <%= f.label :status %><br />
   <%= f.select :status, options_for_select(['Active', 'Close']) %>
-  
-  <%= f.label 'Members' %>
+</p> 
+<p class="fields">
+  <%= f.label 'Members' %><br />
   <% User.all.each do |user| %>
     <%= f.label user.email %>
-    <%= check_box_tag "project[user_ids][]", user.id, @project.users.include?(user) %>
+    <%= check_box_tag "project[user_ids][]", user.id, @project.users.include?(user) %><br />
   <% end %>
-  
-  <br/>
+ </p>  
+<p class="fields">
   <div class="actions">
     <%= f.submit %>
   </div>
-  
+</p>   
 <% end %>

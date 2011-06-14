@@ -9,26 +9,34 @@
     </ul>
   </div>
 <% end %>
-
-<%= f.label :ticket_name %>
+<p class="fields">
+<%= f.label :ticket_name %><br />
 <%= f.text_field :ticket_name %>
-
-<%= f.label :ticket_description %>
+</p>
+<p class="fields">
+<%= f.label :ticket_description %><br />
 <%= f.text_area :ticket_description %>
-
-<%= f.label :status %>
+</p>
+<p class="fields">
+<%= f.label :status %><br />
 <%= f.select :status, options_for_select(['Open', 'Assigned', 'In-progress', 'Resolved', 'Reopened']) %>
-
-<%= f.label :priority %>
+</p>
+<p class="fields">
+<%= f.label :priority %><br />
 <%= f.select :priority, options_for_select(['Minor', 'Normal', 'Major', 'Critical']) %>
-
-<%= f.label :assigned_to %>
+</p>
+<p class="fields">
+<%= f.label :assigned_to %><br />
 <%= f.select :assigned_to, options_from_collection_for_select(@project.users, 'id', 'email') %>
-
-<%= f.label :logged_time %>
+</p>
+<p class="fields">
+<%= f.label :logged_time %><br />
 <%= f.text_field :logged_time %>
-
-<%= f.label :tracker_type %>
+</p>
+<p class="fields">
+<%= f.label :tracker_type %><br />
 <%= f.select :tracker_type, options_for_select(['Bug', 'Task']) %>
-
+</p>
+<p class="fields">
 <%= f.submit %>
+<p class="fields">

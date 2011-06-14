@@ -1,29 +1,31 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
-  <%= f.label :email %>
+<p class="fields">
+  <%= f.label :email %><br />
   <%= f.text_field :email %>
-  
-  <%= f.label :password %>
+</p>
+<p class="fields">  
+  <%= f.label :password %><br />
   <%= f.text_field :password %>
-  
-  <%= f.label :password_confirmation %>
+</p>
+<p class="fields">  
+  <%= f.label :password_confirmation %><br />
   <%= f.text_field :password_confirmation %>
-  
-  <%= f.label :admin %>
+</p>
+<p class="fields">  
+  <%= f.label :admin %><br />
   <%= f.check_box :admin %>
-  
-  <br/>
-    
-  <div class="field">
+</p>    
+  <p class="field">
     <%= f.label :status %><br />
     <%= f.select :status, options_for_select(['Active', 'Inactive', 'Locked']) %>
-  </div>
-  
+  </p>
+<p class="fields">  
   <% unless resource.admin? %>
+    <%= f.label :role %><br />
     <%= f.collection_select :role_id, Role.all, :id, :position %>
   <% end %>
-  
+</p>
   <div class="actions">
     <%= f.submit %>
   </div>

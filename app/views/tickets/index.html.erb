@@ -1,0 +1,32 @@
+<h3>Tickets</h3>
+<table>
+<tr>
+<th>Ticket Name</th>
+<th>Description</th>
+<th>Status</th>
+<th>Priority</th>
+<th>Assigned To</th>
+<th>Logged Time</th>
+<th>Tracker Type</th>
+<th></th>
+</tr>
+<% @tickets.each do |ticket| %>
+<% if !ticket.priority.eql?("Critical") %>
+  <tr class="<%= cycle("odd","even") %>" >
+<% else %>
+  <tr class="critical" >
+<% end %>
+    <td><%= ticket.ticket_name %></td>
+    <td><%= ticket.ticket_description %></td>
+    <td><%= ticket.status %></td>
+    <td><%= ticket.priority %></td>
+    <td><%= ticket.get_assigned %></td>
+    <td><%= ticket.logged_time %></td>
+    <td><%= ticket.tracker_type %></td>
+    <td>
+      <%= link_to_if(can?(:edit, ticket), "Edit" , edit_project_ticket_path(@project,ticket)) %> | 
+      <%= link_to_if(can?(:destroy, ticket), "Delete", project_ticket_path(@project,ticket), :confirm => "Delete?", :method => :delete) %>
+    </td>
+  </tr>
+<% end %>
+</table>

@@ -1,5 +1,6 @@
 body{
   margin: 0;
+  font-family: sans-serif;
 }
 #header{
   height: 50px;
@@ -27,5 +28,70 @@ body{
   padding:5px;
   margin: auto;
   width: 65%;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="file"], textarea{
+  width: 300px;
+  border: 1px solid #55410A;
+  padding: 5px;
+}
+
+select{
+  border: 1px solid #55410A;
+  padding: 5px;
+}
+
+input[type="submit"]{
+
+  background-color: #ED9C10;
+
+  color: white;
+
+  padding: 5px;
+
+  font-weight: bold;
+
+  -moz-border-radius: 10px;
+
+  -moz-box-shadow: 0 5px 5px #55410A;
+
+  -webkit-border-radius: 10px;
+  
+  -webkit-box-shadow: 0 5px 5px #55410A;
+  box-shadow: 0 5px 5px #55410A;
+
+}
+
+input[type="submit"]:hover{
+
+  background-color: #FDC21E;
+  border: 1px solid black;
+  color: black;
+  
+}
+
+input[type="submit"]:active{
+
+  background-color: #ED9C10;
+  color: white;
+  -moz-box-shadow: 0 2px 2px #55410A;
+  -webkit-box-shadow: 0 2px 2px #55410A;
+  box-shadow: 0 2px 2px #55410A;
+
+}
+
+table td, th{
+  padding: 5px;
+}
+table th{
+  border: 1px solid #382A00;
+  background-color: #9E7700;
+  color: #FFF2CC;
+}
+.even{
+  background-color: #FFF2CC;
+}
+.critical{
+  background-color: #FF8080;
 }
 
