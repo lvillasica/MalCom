@@ -31,15 +31,26 @@ body{
   text-decoration: none;
 }
 #main{
-  padding:5px;
+  padding:0 5px;
   margin: auto;
   width: 65%;
 }
 
-input[type="text"], input[type="password"], input[type="email"], input[type="file"], textarea{
+#proj_tabs{
+  padding: 5px;
+  background-color: 
+}
+
+#main a{
+  text-decoration: none;
+  color: #6B3900;
+}
+
+input[type="text"], input[type="password"], input[type="email"], textarea{
   width: 300px;
   border: 1px solid #55410A;
   padding: 5px;
+  background-color: #FFF3E5;
 }
 
 select{
