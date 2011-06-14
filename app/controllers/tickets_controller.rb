@@ -38,7 +38,6 @@ class TicketsController < ApplicationController
   
   def get_project
     @project = Project.find(params[:project_id])
-    puts @project.inspect
   end
   
   def get_ticket
