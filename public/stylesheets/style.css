@@ -60,24 +60,15 @@ select{
 }
 
 input[type="submit"]{
-
   background-color: #ED9C10;
-
   color: white;
-
   padding: 5px;
-
   font-weight: bold;
-
   -moz-border-radius: 10px;
-
   -moz-box-shadow: 0 5px 5px #55410A;
-
   -webkit-border-radius: 10px;
-  
   -webkit-box-shadow: 0 5px 5px #55410A;
   box-shadow: 0 5px 5px #55410A;
-
 }
 
 input[type="submit"]:hover{
@@ -107,6 +98,20 @@ table th{
   height: 30px;
   background-image: -moz-linear-gradient(top, #9E7700, #000);
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#9E7700), to(#000000));
+}
+
+table.role_assignments {
+  width: 70%;
+  font-size: 12px;
+  text-align: center;
+  background: none;
+}
+
+table.role_assignments th {
+  border: 0;
+  color: #000;  
+  text-align: right;
+  background: none;
 }
 .even{
   background-color: #FFF2CC;

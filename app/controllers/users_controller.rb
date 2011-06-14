@@ -12,11 +12,9 @@ class UsersController < ApplicationController
   def show
   end
   
-  def edit
-  end
-  
-  def update
-    @user.update_attributes(params[:user])
+  def destroy
+    @user.destroy
+    redirect_to users_url
   end
   
   private

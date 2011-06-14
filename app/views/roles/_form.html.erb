@@ -11,67 +11,74 @@
     </div>
   <% end %>
   
-  <table>
+  <%= f.label :position %>
+  <%= f.text_field :position %>
+  
+  <table class="role_assignments">
     <tr>
-      <th rowspan='2'>Position</th>
-      <th colspan='4'>Project</th>
-      <th colspan='4'>Ticket</th>
-      <th colspan='4'>Tag</th>
-      <th colspan='3'>Comment</th>
-      <th colspan='2'>Member</th>
+      <th colspan='5'></th>
     </tr>
     
     <tr>
-      
-      <th>Create</th>
-      <th>Read</th>
-      <th>Update</th>
-      <th>Delete</th>
-      
-      <th>Create</th>
-      <th>Read</th>
-      <th>Update</th>
-      <th>Delete</th>
-
-      <th>Create</th>
-      <th>Read</th>
-      <th>Update</th>
-      <th>Delete</th>
-
-      <th>Create</th>
-      <th>Read</th>
-      <th>Delete</th>
-      
-      <th>Add</th>      
-      <th>Remove</th>
-      
-      <th>Assign Ticket</th>
+      <th></th>
+      <td>Create</td>
+      <td>Read</td>
+      <td>Update</td>
+      <td>Delete</td>
     </tr>
     
     <tr>
-      <td><%= f.text_field :position %></td>
+      <th>Project Actions</th>
       <td><%= f.check_box :can_create_project %></td>
       <td><%= f.check_box :can_read_project %></td>
       <td><%= f.check_box :can_update_project %></td>
       <td><%= f.check_box :can_delete_project %></td>
+    </tr>
+
+    <tr>
+      <th>Ticket Actions</th>
       <td><%= f.check_box :can_create_ticket %></td>
       <td><%= f.check_box :can_read_ticket %></td>
       <td><%= f.check_box :can_update_ticket %></td>
       <td><%= f.check_box :can_delete_ticket %></td>
+    </tr>
+
+    <tr>
+      <th>Tag Actions</th>
       <td><%= f.check_box :can_create_tag %></td>
       <td><%= f.check_box :can_read_tag %></td>
       <td><%= f.check_box :can_update_tag %></td>
       <td><%= f.check_box :can_delete_tag %></td>
+    </tr>
+
+    <tr>
+      <th>Comment Actions</th>
       <td><%= f.check_box :can_create_comment %></td>
       <td><%= f.check_box :can_read_comment %></td>
+      <td>-</td>
       <td><%= f.check_box :can_delete_comment %></td>
-      <td><%= f.check_box :can_add_member %></td>
-      <td><%= f.check_box :can_remove_member %></td>
-      <td><%= f.check_box :can_assign_ticket %></td>
     </tr>
     
     <tr>
-      <td><%= f.submit  %></td>
+      <th colspan='5'></th>
     </tr>
+    
+    <tr>
+      <th>Add Members</th>
+      <td><%= f.check_box :can_add_member %></td>
+    </tr>
+    
+    <tr>
+      <th>Remove Members</th>
+      <td><%= f.check_box :can_add_member %></td>
+    </tr>
+    
+    <tr>
+      <th>Assign Tickets</th>
+      <td><%= f.check_box :can_assign_ticket %></td>
+    </tr>
+    
   </table>
+  <br/>
+  <%= f.submit  %>
 <% end %>
