@@ -11,6 +11,7 @@ MalCom::Application.routes.draw do
     member do
       get 'overview', :to => 'projects#overview'
     end
+    resources :tickets
   end
   get 'admin/projects', :to => 'projects#projects'
   

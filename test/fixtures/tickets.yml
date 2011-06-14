@@ -1,23 +1,23 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  ticket_name: 
-  ticket_description: 
-  status: 
-  priority: 
-  assigned_to: 
-  logged_time: 
-  created_by: 
-  tracker_type: 
+  ticket_name: MyString
+  ticket_description: MyText
+  status: MyString
+  priority: MyString
+  assigned_to: 1
+  logged_time: 2011-06-14 10:42:08
+  created_by: 1
+  tracker_type: MyString
   project_id: 1
 
 two:
-  ticket_name: 
-  ticket_description: 
-  status: 
-  priority: 
-  assigned_to: 
-  logged_time: 
-  created_by: 
-  tracker_type: 
+  ticket_name: MyString
+  ticket_description: MyText
+  status: MyString
+  priority: MyString
+  assigned_to: 1
+  logged_time: 2011-06-14 10:42:08
+  created_by: 1
+  tracker_type: MyString
   project_id: 1

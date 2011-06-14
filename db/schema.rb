@@ -10,15 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110613063230) do
-
-  create_table "comments", :force => true do |t|
-    t.integer  "ticket_id"
-    t.text     "comment"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110614024204) do
 
   create_table "projects", :force => true do |t|
     t.string   "project_name"
@@ -53,14 +45,6 @@ ActiveRecord::Schema.define(:version => 20110613063230) do
     t.boolean  "can_add_member"
     t.boolean  "can_remove_member"
     t.boolean  "can_assign_ticket"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tags", :force => true do |t|
-    t.string   "label"
-    t.integer  "project_id"
-    t.integer  "ticket_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

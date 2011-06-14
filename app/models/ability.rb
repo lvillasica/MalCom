@@ -14,6 +14,11 @@ class Ability
       can :update, Project if user_role.can_update_project?
       can :destroy, Project if user_role.can_delete_project?
       
+      can :create, Ticket if user_role.can_create_ticket?
+      can :read, Ticket if user_role.can_read_ticket?
+      can :update, Ticket if user_role.can_update_ticket?
+      can :destroy, Ticket if user_role.can_delete_ticket?
+      
     end
     #
     # The first argument to `can` is the action you are giving the user permission to do.

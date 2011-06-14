@@ -1,7 +1,7 @@
 <div id="proj_tabs">
 <%= link_to "Overview", project_path, :remote => true %> |
-<%= link_to "Tickets", "#" %> |
-<%= link_to "New Ticket", "#" %> |
+<%= link_to "Tickets", project_tickets_path(@project.id) %> |
+<%= link_to "New Ticket", new_project_ticket_path(@project.id) %> |
 <%= link_to "Members", "#" if current_user.admin? %>
 </div>
 <h2><%= @project.project_name %></h2>
