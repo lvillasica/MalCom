@@ -23,6 +23,12 @@
 <%= f.select :priority, options_for_select(['Minor', 'Normal', 'Major', 'Critical']) %>
 
 <%= f.label :assigned_to %>
-<%#= f.select :status, %>
-  
+<%= f.select :assigned_to, options_from_collection_for_select(@project.users, 'id', 'email') %>
+
+<%= f.label :logged_time %>
+<%= f.text_field :logged_time %>
+
+<%= f.label :tracker_type %>
+<%= f.select :tracker_type, options_for_select(['Bug', 'Task']) %>
+
 <%= f.submit %>
