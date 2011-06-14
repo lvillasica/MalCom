@@ -11,7 +11,6 @@ MalCom::Application.routes.draw do
   get 'admin/projects', :to => 'projects#projects'
   
   resources :roles
-  #resources :projects
   
   root :to => 'projects#index'
 

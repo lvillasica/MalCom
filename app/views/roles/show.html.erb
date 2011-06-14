@@ -1,0 +1,64 @@
+<table>
+    <tr>
+      <th rowspan='2'>Position</th>
+      <th colspan='4'>Project</th>
+      <th colspan='4'>Ticket</th>
+      <th colspan='4'>Tag</th>
+      <th colspan='3'>Comment</th>
+      <th colspan='2'>Member</th>
+    </tr>
+    
+    <tr>
+      
+      <th>Create</th>
+      <th>Read</th>
+      <th>Update</th>
+      <th>Delete</th>
+      
+      <th>Create</th>
+      <th>Read</th>
+      <th>Update</th>
+      <th>Delete</th>
+
+      <th>Create</th>
+      <th>Read</th>
+      <th>Update</th>
+      <th>Delete</th>
+
+      <th>Create</th>
+      <th>Read</th>
+      <th>Delete</th>
+      
+      <th>Add</th>      
+      <th>Remove</th>
+      
+      <th>Assign Ticket</th>
+    </tr>
+  
+  <tr>
+    <td><%= @role.position %></td>
+    <td><%= "&#149;".html_safe if @role.can_create_project? %></td>
+    <td><%= "&#149;".html_safe if @role.can_read_project? %></td>
+    <td><%= "&#149;".html_safe if @role.can_update_project? %></td>
+    <td><%= "&#149;".html_safe if @role.can_delete_project? %></td>
+    
+    <td><%= "&#149;".html_safe if @role.can_create_ticket? %></td>
+    <td><%= "&#149;".html_safe if @role.can_read_ticket? %></td>
+    <td><%= "&#149;".html_safe if @role.can_update_ticket? %></td>
+    <td><%= "&#149;".html_safe if @role.can_delete_ticket? %></td>
+    
+    <td><%= "&#149;".html_safe if @role.can_create_tag? %></td>
+    <td><%= "&#149;".html_safe if @role.can_read_tag? %></td>
+    <td><%= "&#149;".html_safe if @role.can_update_tag? %></td>
+    <td><%= "&#149;".html_safe if @role.can_delete_tag? %></td>
+    
+    <td><%= "&#149;".html_safe if @role.can_create_comment? %></td>
+    <td><%= "&#149;".html_safe if @role.can_read_comment? %></td>
+    <td><%= "&#149;".html_safe if @role.can_delete_comment? %></td>
+    
+    <td><%= "&#149;".html_safe if @role.can_add_member? %></td>
+    <td><%= "&#149;".html_safe if @role.can_remove_member? %></td>
+    
+    <td><%= "&#149;".html_safe if @role.can_assign_ticket? %></td>
+  </tr>
+</table>
