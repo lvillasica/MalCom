@@ -2,5 +2,5 @@
 <%= link_to "Overview", project_path %> |
 <%= link_to "Tickets", "#" %> |
 <%= link_to "New Tickets", "#" %> |
-<%= link_to "Members", "#" %>
+<%= link_to "Members", "#" if current_user.admin? %>
 </div>

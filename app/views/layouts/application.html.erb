@@ -13,7 +13,7 @@
     MalCom
   </span>
   <span id="right_nav">
-    <% if current_user.admin? %>
+    <% if user_signed_in? and current_user.admin? %>
     <%= link_to "Home", projects_path %>
     <span id="admin_nav">
       <%= link_to 'Project Admin Page', admin_projects_path %>
