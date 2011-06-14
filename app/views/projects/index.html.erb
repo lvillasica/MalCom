@@ -1,4 +1,6 @@
 <h2>Projects</h2>
+
+<p class='notice'><%= flash[:error] if flash[:error] %></p>
 <% if user_signed_in? %>
 <ul>
   <% @projects.each do |project| %>

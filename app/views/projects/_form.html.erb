@@ -22,14 +22,18 @@
 <p class="fields">
   <%= f.label :status %><br />
   <%= f.select :status, options_for_select(['Active', 'Close']) %>
-</p> 
-<p class="fields">
-  <%= f.label 'Members' %><br />
-  <% User.all.each do |user| %>
-    <%= f.label user.email %>
-    <%= check_box_tag "project[user_ids][]", user.id, @project.users.include?(user) %><br />
-  <% end %>
- </p>  
+</p>
+
+<%# if can? :assign, Ticket %> 
+  <p class="fields">
+    <%= f.label 'Members' %><br />
+    <% User.all.each do |user| %>
+      <%= f.label user.email %>
+      <%= check_box_tag "project[user_ids][]", user.id, @project.users.include?(user) %><br />
+    <% end %>
+  </p>
+<%# end %>
+
 <p class="fields">
   <div class="actions">
     <%= f.submit %>

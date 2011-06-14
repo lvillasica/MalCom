@@ -1,7 +1,7 @@
 class Ticket < ActiveRecord::Base
 
   belongs_to :project
-  belongs_to :ticket
+  belongs_to :tag
   #has_many :comments
   #has_many_and_belongs_to :tags
   before_save :get_assigned

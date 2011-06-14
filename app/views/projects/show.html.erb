@@ -1,8 +1,8 @@
 <div id="proj_tabs">
-<%= link_to "Overview", project_path, :remote => true %> |
-<%= link_to "Tickets", project_tickets_path(@project.id) %> |
-<%= link_to "New Ticket", new_project_ticket_path(@project.id) %> |
-<%= link_to "Members", members_project_path(@project), :remote => true if current_user.admin? %>
+<%= link_to "Overview", project_path, :remote => true %>
+<%= link_to_if(can?(:read, Ticket), " | Tickets", project_tickets_path(@project.id)) %>
+<%= link_to_if(can?(:create, Ticket), " | New Ticket", new_project_ticket_path(@project.id)) %>
+<%= link_to " | Members", members_project_path(@project), :remote => true if current_user.admin? %>
 </div>
 <h2><%= @project.project_name %></h2>
 <div id="proj_contentPane">

@@ -37,6 +37,7 @@ $('#comment_all').live('click', function(){
 
 // role assignments end
 
+
 $(function() {
 
   $("#proj_list").change(function(){

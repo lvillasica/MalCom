@@ -9,6 +9,7 @@ class TagsController < ApplicationController
   
   def create
     @tag = Tag.new(params[:tag])
+    puts params.inspect
   end
   
   def show
