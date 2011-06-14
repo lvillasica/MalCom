@@ -11,11 +11,9 @@
 <th></th>
 </tr>
 <% @tickets.each do |ticket| %>
-<% if !ticket.priority.eql?("Critical") %>
-  <tr class="<%= cycle("odd","even") %>" >
-<% else %>
-  <tr class="critical" >
-<% end %>
+<% klass = "" %> 
+<% klass = ticket.priority.eql?("Critical")? "critical":"" %>
+  <tr class="<%= cycle("odd","even") %> <%= klass %>" >
     <td><%= ticket.ticket_name %></td>
     <td><%= ticket.ticket_description %></td>
     <td><%= ticket.status %></td>

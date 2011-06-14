@@ -1,4 +1,4 @@
 <h1>Edit Story</h1>
-<%= form_for @ticket, :url => project_tickets_url do |f| %>
+<%= form_for @ticket, :url => project_ticket_url do |f| %>
   <%= render :partial => 'form' , :locals => {:f => f} %>
 <% end %>
