@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
 
   before_filter :authenticate_user!
+  skip_authorize_resource :only => :index
   before_filter :get_project, :except => [:index, :new, :create, :projects, :remove_member]
   load_and_authorize_resource
   

@@ -120,3 +120,6 @@ table.role_assignments th {
   background-color: #FF8080;
 }
 
+.small { font-size: 10px;}
+.notice { color: #ce1414; }
+
