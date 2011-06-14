@@ -6,6 +6,12 @@ body{
   height: 50px;
   margin: 0;
   padding: 10px;
+  background-image: -moz-linear-gradient(top, #9E7700, #000);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#9E7700), to(#000000));
+  color: #FFF2CC; 
+}
+#header a{
+  color: #FFE6CC; 
 }
 #header_content{
   padding: 10px;
@@ -39,6 +45,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="fil
 select{
   border: 1px solid #55410A;
   padding: 5px;
+  background-color: #FFE6CC;
 }
 
 input[type="submit"]{
@@ -85,8 +92,10 @@ table td, th{
 }
 table th{
   border: 1px solid #382A00;
-  background-color: #9E7700;
   color: #FFF2CC;
+  height: 30px;
+  background-image: -moz-linear-gradient(top, #9E7700, #000);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#9E7700), to(#000000));
 }
 .even{
   background-color: #FFF2CC;
