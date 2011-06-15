@@ -16,11 +16,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def update
     @resource = User.find_by_id(params[:user][:id])
-    if @resource.update_with_password(params[resource_name])
+    params[resource_name].delete(:password) if params[resource_name][:password].blank?
+    params[resource_name].delete(:password_confirmation) if params[resource_name][:password_confirmation].blank?
+
+    if @resource.update_attributes(params[:user])
       redirect_to users_url
     else
       clean_up_passwords(@resource)
-      respond_with_navigational(@resource){ render_with_scope :edit }
+      render_with_scope :edit
     end
   end
 

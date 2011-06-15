@@ -2,62 +2,68 @@
 
 <%= form_for(@resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
-<p class="fields">
-  <%= f.hidden_field :id, :value => @resource.id %>
-  <%= f.label :email %><br />
-  <%= f.text_field :email %>
-</p>
-<p class="fields">  
-  <%= f.label :password %><br />
-  <%= f.password_field :password %>
-</p>
-<p class="fields">    
-  <%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %>
-</p>
-<p class="fields">    
-  <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %>
-</p>
-<p class="fields">  
-  <%= f.label :admin %><br />
-  <%= f.check_box :admin %>
-</p>
-  
+  <p class="fields">
+    <%= f.hidden_field :id, :value => @resource.id %>
+    <%= f.label :email %>
+    <br />
+    <%= f.text_field :email %>
+  </p>
+  <p class="small notice"><i>Leave the password fields empty if you don't wish to change the password</i></p>
+  <p class="fields">  
+    <%= f.label :password %>
+    <br />
+    <%= f.password_field :password %>
+  </p>
+  <p class="fields">    
+    <%= f.label :password_confirmation %>
+    <br />
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p class="fields">  
+    <%= f.label :admin %>
+    <br />
+    <%= f.check_box :admin %>
+  </p>
   <p class="field">
-    <%= f.label :username %><br />
+    <%= f.label :username %>
+    <br />
     <%= f.text_field :username %>
   </p>
   <p class="field">
-    <%= f.label :first_name %><br />
+    <%= f.label :first_name %>
+    <br />
     <%= f.text_field :first_name %>
   </p>
   <p class="field">
-    <%= f.label :middle_name %><br />
+    <%= f.label :middle_name %>
+    <br />
     <%= f.text_field :middle_name %>
   </p>
   <p class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+  <%= f.label :last_name %>
+  <br />
+  <%= f.text_field :last_name %>
   </p>
   <p class="field">
-    <%= f.label :birthdate %><br />
+    <%= f.label :birthdate %>
+    <br />
     <%= f.date_select :birthdate %>
   </p>
   <p class="field">
-    <%= f.label :status %><br />
-    <%= f.select :status, options_for_select(['Active', 'Inactive', 'Locked']) %>
+    <%= f.label :status %>
+    <br />
+    <%= f.select :status, %w[Active Inactive Locked], {:selected => @resource.status} %>
   </p>
-<p class="fields">  
+  
   <% unless @resource.admin? %>
-    <%= f.collection_select :role_id, Role.all, :id, :position %>
+    <p class="fields">  
+      <%= f.collection_select :role_id, Role.all, :id, :position %>
+    </p>
   <% end %>
-</p>
+  
   <p><%= f.submit "Update" %></p>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+<p><%= link_to "Deactivate Account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %></p>
 
 <%= link_to "Back", :back %>

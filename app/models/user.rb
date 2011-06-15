@@ -20,4 +20,5 @@ class User < ActiveRecord::Base
   def admin_role
     self.role_id = 0 if self.admin?
   end
+  
 end
