@@ -4,7 +4,10 @@
   <%= text_field_tag "date", "Click to pick date..." %>
   </span>
   <span class="fields">
-  <%= select_tag "status", options_for_select(['Status','Open', 'Assigned', 'In-progress', 'Resolved', 'Reopened']) %>
+    <%= select_tag "assigned_to", options_from_collection_for_select(@project.users, 'id', 'email'), {:include_blank => "Users" } %>
+  </span>
+  <span class="fields">
+  <%= select_tag "status", options_for_select(['Status', 'Open', 'Assigned', 'In-progress', 'Resolved', 'Reopened']) %>
   </span>
   <span class="fields">
   <%= select_tag "priority", options_for_select(['Priority', 'Minor', 'Normal', 'Major', 'Critical']) %>
@@ -34,7 +37,7 @@
 <% klass = "" %> 
 <% klass = ticket.priority.eql?("Critical")? "critical":"" %>
   <tr class="<%= cycle("odd","even") %> <%= klass %>" >
-    <td><%= ticket.ticket_name %></td>
+    <td><%= link_to_if(can?(:edit, ticket), ticket.ticket_name, edit_project_ticket_path(@project,ticket), :remote => true) %></td>
     <td><%= ticket.ticket_description %></td>
     <td><%= ticket.status %></td>
     <td><%= ticket.priority %></td>
@@ -43,7 +46,6 @@
     <td><%= ticket.logged_time %></td>
     <td><%= ticket.tracker_type %></td>
     <td>
-      <%= link_to_if(can?(:edit, ticket), "Edit" , edit_project_ticket_path(@project,ticket), :remote => true) %> | 
       <%= link_to_if(can?(:destroy, ticket), "Delete", project_ticket_path(@project,ticket), :confirm => "Delete?", :method => :delete, :remote => true) %>
     </td>
   </tr>

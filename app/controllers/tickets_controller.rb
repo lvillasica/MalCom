@@ -5,7 +5,7 @@
   load_and_authorize_resource
   
   def index
-    @tickets = @project.tickets.search(params[:date], params[:status], params[:priority])
+    @tickets = @project.tickets.search(params[:date], params[:assigned_to], params[:status], params[:priority])
   end
   
   def new
