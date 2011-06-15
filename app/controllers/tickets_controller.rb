@@ -17,7 +17,7 @@
     @ticket = @project.tickets.new(params[:ticket])
     @ticket.tags.build(@ticket.separate_tags(@project.id, params[:tags][:label]))
     @ticket.save
-    redirect_to @project
+    redirect_to project_tickets_path(@project)
   end
   
   def show
@@ -29,7 +29,7 @@
   def update
     @ticket.update_tags(params[:tags][:label], @ticket.tags)
     if @ticket.update_attributes(params[:ticket])
-      redirect_to @project
+      redirect_to project_tickets_path(@project)
     end
   end
   

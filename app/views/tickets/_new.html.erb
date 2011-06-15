@@ -1,0 +1,17 @@
+<h1>New Story</h1>
+<%= form_for @ticket, :url => project_tickets_url, :remote => true do |f| %>
+  <%= render :partial => 'form' , :locals => {:f => f} %>
+  
+  <% if can? :create, Tag %>
+    <p id='tags' class='fields'>
+      <%= fields_for :tags do |builder| %>
+        <% show_tags %>
+        Tags: <%= builder.text_field :label %> <span class= "small notice">use comma to separate tags</span>
+      <% end -%>
+    </p>
+  <% end %>
+
+  <p class="fields">
+  <%= f.submit %>
+  <p class="fields">
+<% end %>

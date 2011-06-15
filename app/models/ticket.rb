@@ -39,6 +39,7 @@ class Ticket < ActiveRecord::Base
   end
 
   def self.search(date, status, priority)
+    date = "" if date = "Click to pick date..."
     status = "" if status == "Status"
     priority = "" if priority == "Priority"
     find(:all, :conditions => ["created_at LIKE ? and status LIKE ? and priority LIKE ?", "#{date}%", "#{status}%", "#{priority}%"])

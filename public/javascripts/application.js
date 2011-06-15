@@ -36,7 +36,9 @@ $('#comment_all').live('click', function(){
 });
 
 // role assignments end
-
+function datepick(){
+  $("#date").datepicker({dateFormat: 'yy-mm-dd'});
+}
 
 $(function() {
 
@@ -44,7 +46,6 @@ $(function() {
     if($(this).val()!="")window.location = $(this).val();  
   });  
 
-  $("#date").datepicker({dateFormat: 'yy-mm-dd'});
   $("#notice").dialog({modal: "true"});
 
 });
