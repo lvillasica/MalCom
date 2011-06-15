@@ -39,14 +39,15 @@ $('#comment_all').live('click', function(){
 function datepick(){
   $("#date").datepicker({dateFormat: 'yy-mm-dd'});
 }
+function notice(){
+  $("#notice").dialog({modal: "true"});
+}
 
 $(function() {
 
   $("#proj_list").change(function(){
     if($(this).val()!="")window.location = $(this).val();  
   });  
-
-  $("#notice").dialog({modal: "true"});
 
 });
 

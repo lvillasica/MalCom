@@ -42,9 +42,13 @@ class Ticket < ActiveRecord::Base
     date = "" if date == "Click to pick date..."
     status = "" if status == "Status"
     priority = "" if priority == "Priority"
+    if assigned_to.eql?("")
     find(:all, :conditions => ["created_at LIKE ? and status LIKE ? and priority LIKE ?", 
          "#{date}%", "#{status}%", "#{priority}%"])
-    
+    else
+    find(:all, :conditions => ["created_at LIKE ? and assigned_to = ? and status LIKE ? and priority LIKE ?", 
+         "#{date}%", assigned_to.to_i, "#{status}%", "#{priority}%"]) 
+    end
   end
 
 end
