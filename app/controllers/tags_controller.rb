@@ -3,12 +3,15 @@ class TagsController < ApplicationController
   before_filter :get_project
   before_filter :get_tag, :only => [:edit, :update, :show, :destroy]
   
+  respond_to :js
+  
   def new
     @tag = Tag.new
   end
   
   def create
-    @tag = Tag.new(params[:tag])
+    puts params.inspect
+    #@tag = Tag.new(params[:tag])
   end
   
   def show

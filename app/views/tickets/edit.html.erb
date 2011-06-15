@@ -1,4 +1,17 @@
 <h1>Edit Story</h1>
 <%= form_for @ticket, :url => project_ticket_url do |f| %>
   <%= render :partial => 'form' , :locals => {:f => f} %>
+
+  <% if can? :update, Tag %>
+    <p id='tags' class='fields'>
+      <%= fields_for :tags do |builder| %>
+        <% tags = show_tags %>
+        Tags: <%= builder.text_field :label, :value => tags %> <span class= "small notice">use comma to separate tags</span>
+      <% end -%>
+    </p>
+  <% end %>
+
+  <p class="fields">
+  <%= f.submit %>
+  <p class="fields">
 <% end %>

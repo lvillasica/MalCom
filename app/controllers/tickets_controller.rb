@@ -1,4 +1,4 @@
-class TicketsController < ApplicationController
+  class TicketsController < ApplicationController
   
   before_filter :get_project
   before_filter :get_ticket, :only => [:show, :edit, :update, :destroy]
@@ -10,10 +10,12 @@ class TicketsController < ApplicationController
   
   def new
     @ticket = Ticket.new
+    @ticket.tags.build
   end
   
   def create
     @ticket = @project.tickets.new(params[:ticket])
+    @ticket.tags.build(@ticket.separate_tags(@project.id, params[:tags][:label]))
     @ticket.save
     redirect_to @project
   end
@@ -25,8 +27,10 @@ class TicketsController < ApplicationController
   end
   
   def update
-    @ticket.update_attributes(params[:ticket])
-    redirect_to @project
+    @ticket.update_tags(params[:tags][:label], @ticket.tags)
+    if @ticket.update_attributes(params[:ticket])
+      redirect_to @project
+    end
   end
   
   def destroy

@@ -13,7 +13,9 @@ MalCom::Application.routes.draw do
       get 'members', :to => 'projects#members'
       delete 'members', :to => 'projects#remove_member'
     end
-    resources :tickets
+    resources :tickets do
+      post 'tags', :to => 'tags#create'
+    end
   end
   get 'admin/projects', :to => 'projects#projects'
   
