@@ -1,11 +1,11 @@
 <p>MalCom Invitation!</p>
-
 <br/><br/>
 
-Your login account: <br/><br/>
-Email: <%= @resource.email %>
-Password: <%= @resource.password %>
-
+<p>Your login account:</p>
+<br/>
+<p>Email: <%= @resource.email %></p>
+<p>Password: <%= @resource.password %></p>
+<br/><br/>
 <p>You can confirm your account through the link below:</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>

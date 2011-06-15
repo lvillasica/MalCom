@@ -1,5 +1,6 @@
 class RolesController < ApplicationController
 
+  before_filter :authenticate_user!
   before_filter :get_role, :except => [:index, :new, :create]
   load_and_authorize_resource
   

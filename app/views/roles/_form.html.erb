@@ -17,7 +17,7 @@
   <p class='small notice'>* checks/unchecks all boxes in row</p>
   <table class="role_assignments">
     <tr>
-      <th colspan='5'></th>
+      <th colspan='6'></th>
     </tr>
     
     <tr>
@@ -28,7 +28,7 @@
       <td>Delete</td>
     </tr>
     
-    <tr id='project'>
+    <tr id='project' class='odd'>
       <th>Project Actions</th>
       <td><%= f.check_box :can_create_project %></td>
       <td><%= f.check_box :can_read_project %></td>
@@ -37,7 +37,7 @@
       <td>*<%= check_box 'project', 'all' %></td>
     </tr>
 
-    <tr id='ticket'>
+    <tr id='ticket' class='even'>
       <th>Ticket Actions</th>
       <td><%= f.check_box :can_create_ticket %></td>
       <td><%= f.check_box :can_read_ticket %></td>
@@ -46,7 +46,7 @@
       <td>*<%= check_box 'ticket', 'all' %></td>
     </tr>
 
-    <tr id='tag'>
+    <tr id='tag' class='odd'>
       <th>Tag Actions</th>
       <td><%= f.check_box :can_create_tag %></td>
       <td><%= f.check_box :can_read_tag %></td>
@@ -55,7 +55,7 @@
       <td>*<%= check_box 'tag', 'all' %></td>
     </tr>
 
-    <tr id='comment'>
+    <tr id='comment' class='even'>
       <th>Comment Actions</th>
       <td><%= f.check_box :can_create_comment %></td>
       <td><%= f.check_box :can_read_comment %></td>
@@ -65,25 +65,26 @@
     </tr>
     
     <tr>
-      <th colspan='5'></th>
+      <th colspan='6'></th>
     </tr>
     
-    <tr>
+    <tr class='odd'>
       <th>Add Members</th>
       <td><%= f.check_box :can_add_member %></td>
+      <td colspan='4'></td>
     </tr>
     
-    <tr>
+    <tr class='even'>
       <th>Remove Members</th>
       <td><%= f.check_box :can_add_member %></td>
+      <td colspan='4'></td>
     </tr>
     
-    <tr>
+    <tr class='odd'>
       <th>Assign Tickets</th>
       <td><%= f.check_box :can_assign_ticket %></td>
+      <td colspan='4'></td>
     </tr>
-    
   </table>
-  <br/>
-  <%= f.submit  %>
+<%= f.submit %></div>
 <% end %>

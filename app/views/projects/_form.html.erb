@@ -28,12 +28,15 @@
   <p class="fields">
     <%= f.label 'Members' %><br />
     <% User.all.each do |user| %>
-      <%= f.label user.email %>
-      <%= check_box_tag "project[user_ids][]", user.id, @project.users.include?(user) %><br />
+      <p style="text-indent: 30px;">
+        <%= check_box_tag "project[user_ids][]", user.id, @project.users.include?(user) %>
+        <%= user.email %>
+      </p>
     <% end %>
   </p>
 <%# end %>
 
+<br/>
 <p class="fields">
   <div class="actions">
     <%= f.submit %>

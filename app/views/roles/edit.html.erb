@@ -1,2 +1,5 @@
-<h1>Edit Role</h1>
-<%= render 'form' %>
+<div class='formcontainer'>
+  <p class='rfloat'><%= link_to 'Back', :back %></p>
+  <h1><%= @role.position.humanize %> [Edit]</h1>
+  <%= render 'form' %> 
+</div>

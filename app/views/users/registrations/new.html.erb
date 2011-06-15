@@ -1,42 +1,44 @@
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<div class="formcontainer">
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  <p class="fields">
-    <%= f.label :email %>
-    <br />
-    <%= f.text_field :email %>
-  </p>
-  <p class="fields">  
-    <%= f.label :password %>
-    <br />
-    <%= f.text_field :password %>
-  </p>
-  <p class="fields">  
-    <%= f.label :password_confirmation %>
-    <br />
-    <%= f.text_field :password_confirmation %>
-  </p>
-  <p class="fields">  
-    <%= f.label :admin %>
-    <br />
-    <%= f.check_box :admin %>
-  </p>    
-  <p class="field">
-    <%= f.label :status %>
-    <br />
-    <%= f.select :status, options_for_select(['Active', 'Inactive', 'Locked']) %>
-  </p>
-  <% unless resource.admin? %>
-    <p class="fields">  
-      <%= f.label :role %>
+    <p class="fields">
+      <%= f.label :email %>
       <br />
-      <%= f.collection_select :role_id, Role.all, :id, :position %>
+      <%= f.text_field :email %>
     </p>
+    <p class="fields">  
+      <%= f.label :password %>
+      <br />
+      <%= f.text_field :password %>
+    </p>
+    <p class="fields">  
+      <%= f.label :password_confirmation %>
+      <br />
+      <%= f.text_field :password_confirmation %>
+    </p>
+    <p class="fields">  
+      <%= f.label 'Admin?' %>
+      <br/>
+      <%= f.check_box :admin %>
+    </p>    
+    <p class="field">
+      <%= f.label :status %>
+      <br />
+      <%= f.select :status, options_for_select(['Active', 'Inactive', 'Locked']) %>
+    </p>
+    <% unless resource.admin? %>
+      <p class="fields">  
+        <%= f.label :role %>
+        <br />
+        <%= f.collection_select :role_id, Role.all, :id, :position %>
+      </p>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   <% end %>
   
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-
-<% end %>
-
-<%#= render :partial => "devise/shared/links" %>
+  <br/>
+  <p class="rfloat"><%= link_to 'Back', :back %></p>
+</div>

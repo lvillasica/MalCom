@@ -1,14 +1,14 @@
 <h1>List of Roles</h1>
 
 <% @roles.each do |role| %>
-  <ul>
+  <ul class='block'>
+    <li><%= role.position.humanize %></li>
     <li>
-      <%= role.position %>
       <%= link_to "Show", role %>
       <%= link_to "Edit", edit_role_path(role) %>
       <%= link_to "Delete", role, :confirm => 'Delete?', :method => :delete %>
     </li>
   </ul>
 <% end %>
-
-<%= link_to "Add Role", new_role_path %>
+<br/><br/>
+<p><%= link_to "Add Role", new_role_path %></p>

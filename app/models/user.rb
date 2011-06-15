@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :lockable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me,
-                  :username, :last_name, :first_name, :middle_name, :birthdate, :status, :admin, :role_id
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :failed_attempts, :locked_at,
+                  :username, :last_name, :first_name, :middle_name, :birthdate, :status, :admin, :role_id, :id
   
   validates_inclusion_of :status, :in => %w(Active Inactive Locked)
   
@@ -16,9 +16,25 @@ class User < ActiveRecord::Base
   has_many :tickets
   
   before_create :admin_role
+  #after_update :check_lock_status
+  #before_update :check_unlock_status
   
   def admin_role
     self.role_id = 0 if self.admin?
+  end
+  
+  def check_lock_status
+    unless self.locked_at.nil?
+      self.status = 'Locked'
+    end
+  end
+  
+  def check_unlock_status
+    if not self.status.eql? 'Locked' and not self.locked_at.nil?
+      self.failed_attemps = 0
+      self.locked_at = nil
+      self.save
+    end
   end
   
 end

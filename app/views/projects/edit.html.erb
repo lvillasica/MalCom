@@ -1,3 +1,5 @@
-<h1>Edit Project</h1>
-
-<%= render 'form' %>
+<div class='formcontainer'>
+  <p class='rfloat'><%= link_to 'Back', :back %></p>
+  <h1><%= @project.project_name %> [Edit]</h1>
+  <%= render 'form' %>
+</div>

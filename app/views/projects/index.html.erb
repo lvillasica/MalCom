@@ -1,12 +1,16 @@
-<h2>Projects</h2>
+<h2>Welcome <%= display_name %></h2>
 
 <p class='notice'><%= flash[:error] if flash[:error] %></p>
+<p><i>Your Projects</i></p>
 <% if user_signed_in? %>
-<ul>
-  <% @projects.each do |project| %>
-    <li><%= link_to project.project_name, project_path(project) %></li>
-  <% end %>
-</ul>
+  <div id='user_projects_container'>
+    <div id='head'>Your projects</div>
+    <div id='user_projects'>
+      <% @projects.each do |project| %>
+        <p><%= link_to project.project_name, project_path(project) %></p>
+      <% end %>
+    </div>
+  </div>
 <% end %>
-
+<br/><br/>
 <%= link_to_if(can?(:create, Project), 'Add Project', new_project_path) {} %>

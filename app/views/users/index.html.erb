@@ -1,11 +1,11 @@
 <h3>Users</h3>
 <table>
 <tr>
-<th>Username</th>
-<th>Full Name</th>
-<th>Email</th>
-<th>Status</th>
-<th></th>
+<th width='20%'>Username</th>
+<th width='23%'>Full Name</th>
+<th width='23%'>Email</th>
+<th width='17%'>Status</th>
+<th width='17%'></th>
 </tr>
 <% @users.each do |user| %>
   <tr class="<%= cycle("odd","even") %>" >
@@ -20,6 +20,6 @@
   </tr>
 <% end  %>
 </table>
-<br />
+<br /><br/>
 <%= link_to 'Add User', new_user_registration_path %> |
 <%= link_to 'View Roles', roles_path %>

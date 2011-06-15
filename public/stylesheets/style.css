@@ -1,39 +1,80 @@
 body{
   margin: 0;
   font-family: sans-serif;
+  font-size: 12px;
+  background-color: #FFF;
 }
+
 #header{
   height: 50px;
   margin: 0;
   padding: 10px;
-  background-image: -moz-linear-gradient(top, #9E7700, #000);
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#9E7700), to(#000000));
+  background-image: -moz-linear-gradient(top, #403427, #000);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#403427), to(#000000));
   color: #FFF2CC; 
 }
+
 #header a{
-  color: #FFE6CC; 
+  color: #FFE6CC;
 }
+
+#header a:hover { color: #FFF; font-style: italic; }
+
 #header_content{
   padding: 10px;
   margin: auto;
-  width: 70%;
+  width: 820px;
 }
+
+.formcontainer {
+  width: 400px;
+  border: 0;
+  margin: 10px auto;
+  padding: 10px;
+  -mox-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+
+.formcontainer#login {
+  background-color: rgb(77, 53, 29);
+  background-color: rgba(77, 53, 29, 0.75);
+  color: #FFEEDE;
+  width: 350px;
+  padding: 20px;
+  margin: 30px auto;
+}
+
+.formcontainer#login a, a:hover, a:visited { color: #ffc38a; }
+
+#login input[type="email"], #login input[type="password"]{ 
+  width: 95%;
+  margin-top: 5px;
+  -mox-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+
 #title{
   font-weight: bold;
   font-size: 20pt;
   font-family: sans-serif;
 }
+
 #right_nav{
   float: right;
 }
+
 #right_nav a{
   padding: 4px;
   text-decoration: none;
 }
+
 #main{
   padding:0 5px;
   margin: auto;
-  width: 65%;
+  width: 800px;
 }
 
 #proj_tabs{
@@ -47,16 +88,25 @@ body{
 }
 
 input[type="text"], input[type="password"], input[type="email"], textarea{
-  width: 300px;
+  width: 95%;
   border: 1px solid #55410A;
   padding: 5px;
+  margin: 5px auto;
+  resize: vertical;
   background-color: #FFF3E5;
+  -mox-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 
 select{
   border: 1px solid #55410A;
   padding: 5px;
+  margin: 5px auto;
   background-color: #FFE6CC;
+  -mox-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 
 input[type="submit"]{
@@ -89,37 +139,73 @@ input[type="submit"]:active{
 
 }
 
-table td, th{
-  padding: 5px;
-}
+
+table { width: 100%; border-collapse: collapse; }
+table td, th{ padding: 5px; }
+table tr, td { font-size: 11px; }
 table th{
   border: 1px solid #382A00;
   color: #FFF2CC;
   height: 30px;
-  background-image: -moz-linear-gradient(top, #9E7700, #000);
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#9E7700), to(#000000));
+  background-image: -moz-linear-gradient(top, #3B2A14, #000);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(##3B2A14), to(#000000));
 }
 
 table.role_assignments {
-  width: 70%;
+  margin: 10px auto;
+  width: 100%;
+  border: 1px solid #FFE7CF;
   font-size: 12px;
   text-align: center;
-  background: none;
 }
 
 table.role_assignments th {
   border: 0;
-  color: #000;  
+  height: 15px;
+  background-color: #18130E;
+  background-image: none;
   text-align: right;
-  background: none;
-}
-.even{
-  background-color: #FFF2CC;
-}
-.critical{
-  background-color: #FF8080;
 }
 
+.odd { background-color: #FCE5B3; }
+.even{ background-color: #FFF2CC; }
+
+ul { width: 100%; }
+li {
+  margin: 3px auto;
+  list-style: none;
+  display: inline-block;
+  min-width: 200px;
+}
+ul:hover { background-color: #fce5b3;}
+
+#user_projects_container {
+  padding: 0;
+  margin: 10px auto;
+  width: 100%;
+  float: left;
+  display: block;
+}
+
+#head {
+  clear: both;
+  padding: 10px;
+  color: #FFF2CC;
+  background-image: -moz-linear-gradient(top, #3B2A14, #000);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(##3B2A14), to(#000000));
+  text-align: center;
+  -mox-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+}
+
+#user_projects {
+  padding: 10px 250px;
+  font-size: 16px;
+  background-color: #f3ecbe;
+}
+
+.critical{ background-color: #FF8080; }
 .small { font-size: 10px;}
 .notice { color: #ce1414; }
-
+.rfloat { float: right; }
