@@ -41,4 +41,10 @@ class Ticket < ActiveRecord::Base
     self.tags_attributes = separate_tags(self.project_id, labels.join(',').to_s) unless labels.empty?
   end
 
+  def self.search(date, status, priority)
+    status = "" if status == "Status"
+    priority = "" if priority == "Priority"
+    find(:all, :conditions => ["created_at LIKE ? and status LIKE ? and priority LIKE ?", "#{date}%", "#{status}%", "#{priority}%"])
+  end
+
 end

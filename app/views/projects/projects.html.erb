@@ -1,9 +1,20 @@
-<ul>
+<h3>All Projects</h3>
+<table>
+  <tr>
+  <th>Project Name</th>
+  <th>Description</th>
+  <th>Status</th>
+  <th></th>
+  </tr>
   <% @projects.each do |project| %>
-    <li>
-      <%= project.project_name %>
-      <%= link_to_if(can?(:edit, project), "Edit", edit_project_path(project)) %>
+    <tr class="<%= cycle("odd","even") %>">
+      <td><%= project.project_name %></td>
+      <td><%= project.description %></td>
+      <td><%= project.status %></td>
+      <td>
+      <%= link_to_if(can?(:edit, project), "Edit", edit_project_path(project)) %> |
       <%= link_to_if(can?(:destroy, project), "Delete", project, :confirm => "Delete?", :method => :delete) %>
-    </li>
+      </td>
+    </tr>
   <% end %>
-</ul>
+</table>

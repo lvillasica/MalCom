@@ -1,4 +1,22 @@
 <h3>Tickets</h3>
+<%= form_tag project_tickets_path, :method => 'get' do %>
+  <span class="fields">
+  <%= text_field_tag "date" %>
+  </span>
+  <span class="fields">
+  <%= select_tag "status", options_for_select(['Status','Open', 'Assigned', 'In-progress', 'Resolved', 'Reopened']) %>
+  </span>
+  <span class="fields">
+  <%= select_tag "priority", options_for_select(['Priority', 'Minor', 'Normal', 'Major', 'Critical']) %>
+  </span>
+  <span class="fields">
+  <%= submit_tag "Filter", :date => nil, :status => nil, :priority => nil %>
+  </span>
+<% end %>
+<hr />
+<% if @tickets.empty? %>
+  <p id="notice">No match found<%= notice %></p>
+<% end %>
 <table>
 <tr>
 <th>Ticket Name</th>
@@ -6,11 +24,13 @@
 <th>Status</th>
 <th>Priority</th>
 <th>Assigned To</th>
+<th>Date Created</th>
 <th>Logged Time</th>
 <th>Tracker Type</th>
 <th></th>
 </tr>
 <% @tickets.each do |ticket| %>
+<%# if ticket.status != "Resolved" %>
 <% klass = "" %> 
 <% klass = ticket.priority.eql?("Critical")? "critical":"" %>
   <tr class="<%= cycle("odd","even") %> <%= klass %>" >
@@ -19,6 +39,7 @@
     <td><%= ticket.status %></td>
     <td><%= ticket.priority %></td>
     <td><%= ticket.get_assigned %></td>
+    <td><%= ticket.created_at.to_date %></td>
     <td><%= ticket.logged_time %></td>
     <td><%= ticket.tracker_type %></td>
     <td>
@@ -26,5 +47,6 @@
       <%= link_to_if(can?(:destroy, ticket), "Delete", project_ticket_path(@project,ticket), :confirm => "Delete?", :method => :delete) %>
     </td>
   </tr>
+<%# end %>
 <% end %>
 </table>

@@ -44,6 +44,9 @@ $(function() {
     if($(this).val()!="")window.location = $(this).val();  
   });  
 
+  $("#date").datepicker({dateFormat: 'yy-mm-dd'});
+  $("#notice").dialog({modal: "true"});
+
 });
 
 
