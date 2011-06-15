@@ -17,9 +17,7 @@ class Ticket < ActiveRecord::Base
   
   def separate_tags(project_id, labels)
     separated_tags = []
-    tags = labels.split(',')
-
-    tags.each do |tag|
+    labels.split(',').each do |tag|
       separated_tags << {:project_id => project_id, :label => tag.strip}
     end
     separated_tags
@@ -27,7 +25,6 @@ class Ticket < ActiveRecord::Base
   
   
   def update_tags(labels, tags)
-    
     # murag hard code kaayo ni na part :[
     labels = labels.split(',')
     tags.each do |tag|
