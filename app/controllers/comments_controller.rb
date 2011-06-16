@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_filter :get_ticket
   before_filter :authenticate_user!, :except => [:index, :show, :new, :create]
+  respond_to :html, :js
 
   def index
     @comments = @ticket.comments

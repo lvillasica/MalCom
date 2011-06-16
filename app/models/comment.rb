@@ -4,12 +4,12 @@ class Comment < ActiveRecord::Base
   belongs_to :ticket
   belongs_to :user
 
-  before_save :get_user
+  #before_save :get_user
 
-  def get_user
-    @user = User.find(self.ticket_id)
-    @user = @user.email
-  end
+#  def get_user
+#    @user = User.find(self.ticket_id)
+#    @user = @user.email
+#  end
 
 
 end

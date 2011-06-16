@@ -91,7 +91,7 @@ input[type="text"], input[type="password"], input[type="email"], textarea{
   border: 1px solid #55410A;
   padding: 5px;
   margin: 5px auto;
-  resize: vertical;
+  resize: none;
   background-color: #FFF3E5;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -225,6 +225,7 @@ table.role_assignments th {
   border: 1px solid black;
   padding: 10px;
   margin-bottom: 10px;
+  margin-left: -40px;
   list-style-type: none;
   background-color: #BDA674;
 }

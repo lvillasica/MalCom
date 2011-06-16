@@ -24,7 +24,7 @@
   <%= f.select :status, options_for_select(['Active', 'Close']) %>
 </p>
 
-<%# if can? :assign, Ticket %> 
+<% if can? :add_member, @project %> 
   <p class="fields">
     <%= f.label 'Members' %><br />
     <% User.all.each do |user| %>
@@ -34,7 +34,7 @@
       </p>
     <% end %>
   </p>
-<%# end %>
+<% end %>
 
 <br/>
 <p class="fields">

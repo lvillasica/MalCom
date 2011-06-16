@@ -5,6 +5,13 @@ module ProjectsHelper
   end
   
   def tickets_sum(status)
-    Ticket.find(:all, :conditions => ['status = ?', status.humanize ]).count
+    @project.tickets.find(:all, :conditions => ['status = ?', status.humanize ]).count
+  end
+  
+  def total_logtimes
+    tickets = @project.tickets.find(:all)
+    logtimes = 0
+    tickets.each { |ticket| logtimes += ticket.logged_time}
+    logtimes
   end
 end

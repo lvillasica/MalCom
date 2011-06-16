@@ -16,12 +16,13 @@ class Ability
       
       can :create, Ticket if user_role.can_create_ticket?
       can :read, Ticket if user_role.can_read_ticket?
+      can :edit, Ticket if user_role.can_read_ticket?
       can :update, Ticket if user_role.can_update_ticket?
       can :destroy, Ticket if user_role.can_delete_ticket?
       
-#      can :create, Comment if user_role.can_create_comment?
-#      can :read, Comment if user_role.can_read_comment?
-#      can :destroy, Comment if user_role.can_delete_comment?
+      can :create, Comment if user_role.can_create_comment?
+      can :read, Comment if user_role.can_read_comment?
+      can :destroy, Comment if user_role.can_delete_comment?
       
       can :create, Tag if user_role.can_create_tag?
       can :read, Tag if user_role.can_read_tag?
@@ -29,6 +30,8 @@ class Ability
       can :destroy, Tag if user_role.can_delete_tag?
       
       can :remove_member, Project if user_role.can_remove_member?
+      can :add_member, Project if user_role.can_add_member?
+      can :assign, Ticket if user_role.can_assign_ticket?
       
     end
     #

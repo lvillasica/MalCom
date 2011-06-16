@@ -11,7 +11,8 @@
   $("#add_commentlnk").attr("data-remote", "true");
   $("#add_commentlnk").attr("href", "<%= escape_javascript(new_ticket_comment_path(@ticket)) %>");
 }*/
-$("#add_commentPane").html("<%= escape_javascript(render :partial => 'new')%>").hide().show(1000);
+$("#add_commentPane").html("<%= escape_javascript(render :partial => 'new')%>").hide().fadeIn(1000);
+document.getElementById("add_commentPane").scrollIntoView();
 $("#add_commentlnk").hide();
 
 

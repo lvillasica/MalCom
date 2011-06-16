@@ -13,7 +13,7 @@
     <% end %>
 
     <p class="fields">
-    <%= f.submit %>
+    <%= f.submit if can? :update, @ticket %>
     <p class="fields">
   <% end %>
 </div>

@@ -25,7 +25,7 @@ class ProjectsController < ApplicationController
     
     if @project.save
       redirect_to projects_path
-      flash[:project_notice] = "#{@project.name} added."
+      flash[:project_notice] = "#{@project.project_name} added."
     else
       render :new
     end

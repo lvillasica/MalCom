@@ -1,7 +1,6 @@
 <% if @ticket.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
-
     <ul>
     <% @ticket.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -10,31 +9,33 @@
   </div>
 <% end %>
 <p class="fields">
-<%= f.label :ticket_name %><br />
-<%= f.text_field :ticket_name %>
+  <%= f.label :ticket_name %><br />
+  <%= f.text_field :ticket_name %>
 </p>
 <p class="fields">
-<%= f.label :ticket_description %><br />
-<%= f.text_area :ticket_description %>
+  <%= f.label :ticket_description %><br />
+  <%= f.text_area :ticket_description %>
 </p>
 <p class="fields">
-<%= f.label :status %><br />
-<%= f.select :status, options_for_select(['Open', 'Assigned', 'In-progress', 'Resolved', 'Reopened']) %>
+  <%= f.label :status %><br />
+  <%= f.select :status, options_for_select(['Open', 'Assigned', 'In-progress', 'Resolved', 'Reopened']) %>
 </p>
 <p class="fields">
-<%= f.label :priority %><br />
-<%= f.select :priority, options_for_select(['Minor', 'Normal', 'Major', 'Critical']) %>
+  <%= f.label :priority %><br />
+  <%= f.select :priority, options_for_select(['Minor', 'Normal', 'Major', 'Critical']) %>
+</p>
+<% if can? :assign, @ticket %>
+  <p class="fields">
+    <%= f.label :assigned_to %><br />
+    <%= f.select :assigned_to, options_from_collection_for_select(@project.users, 'id', 'email') %>
+  </p>
+<% end %>
+<p class="fields">
+  <%= f.label :logged_time %>  <i class= "small notice">input number of hours</i> 
+  <%= f.text_field :logged_time, :size => '10' %>
 </p>
 <p class="fields">
-<%= f.label :assigned_to %><br />
-<%= f.select :assigned_to, options_from_collection_for_select(@project.users, 'id', 'email') %>
-</p>
-<p class="fields">
-<%= f.label :logged_time %>  <i class= "small notice">input number of hours</i> 
-<%= f.text_field :logged_time, :size => '10' %>
-</p>
-<p class="fields">
-<%= f.label :tracker_type %><br />
-<%= f.select :tracker_type, options_for_select(['Bug', 'Task']) %>
+  <%= f.label :tracker_type %><br />
+  <%= f.select :tracker_type, options_for_select(['Bug', 'Task']) %>
 </p>
 

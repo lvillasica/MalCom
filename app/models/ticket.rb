@@ -41,15 +41,13 @@ class Ticket < ActiveRecord::Base
   end
 
   def self.search(date, assigned_to, status, priority)
-    date = "" if date == "Click to pick date..."
-    status = "" if status == "Status"
-    priority = "" if priority == "Priority"
+    date = "" if date == Time.now.to_date
     if assigned_to.to_i.eql?(0)
-    find(:all, :conditions => ["created_at LIKE ? and status LIKE ? and priority LIKE ?", 
-         "#{date}%", "#{status}%", "#{priority}%"])
+    where("created_at LIKE ? and status LIKE ? and priority LIKE ?", 
+         "#{date}%", "#{status}%", "#{priority}%")
     else
-    find(:all, :conditions => ["created_at LIKE ? and assigned_to = ? and status LIKE ? and priority LIKE ?", 
-         "#{date}%", assigned_to.to_i, "#{status}%", "#{priority}%"]) 
+    where("created_at LIKE ? and assigned_to = ? and status LIKE ? and priority LIKE ?", 
+         "#{date}%", assigned_to.to_i, "#{status}%", "#{priority}%") 
     end
   end
 
