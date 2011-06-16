@@ -31,7 +31,7 @@ body{
   border: 0;
   margin: 10px auto;
   padding: 10px;
-  -mox-border-radius: 8px;
+  -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
   border-radius: 8px;
 }
@@ -50,7 +50,7 @@ body{
 #login input[type="email"], #login input[type="password"]{ 
   width: 95%;
   margin-top: 5px;
-  -mox-border-radius: 4px;
+  -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
@@ -93,7 +93,7 @@ input[type="text"], input[type="password"], input[type="email"], textarea{
   margin: 5px auto;
   resize: vertical;
   background-color: #FFF3E5;
-  -mox-border-radius: 3px;
+  -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
@@ -103,7 +103,7 @@ select{
   padding: 5px;
   margin: 5px auto;
   background-color: #FFE6CC;
-  -mox-border-radius: 3px;
+  -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
@@ -174,6 +174,7 @@ table.role_assignments th {
   list-style: none;
   display: inline-block;
   min-width: 200px;
+  width: 90%;
 }
 
 #user_projects_container {
@@ -190,7 +191,7 @@ table.role_assignments th {
   color: #FFF2CC;
   background-image: -moz-linear-gradient(top, #3B2A14, #000);
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#3B2A14), to(#000000));
-  -mox-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
   -webkit-border-radius: 5px 5px 0 0;
   border-radius: 5px 5px 0 0;
 }
@@ -200,7 +201,7 @@ table.role_assignments th {
   display: block; 
   background-color: #ffefe3; 
   padding: 5px; 
-  -mox-border-radius: 5px;
+  -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
@@ -220,9 +221,7 @@ table.role_assignments th {
 .notice { color: #ce1414; }
 .rfloat { float: right; }
 
-ul li.comment_list{
-  -moz-border-radius: 10px;
-  -moz-box-shadow:inset 0px 0px 20px;
+#comments_ul li.comment_list{
   border: 1px solid black;
   padding: 10px;
   margin-bottom: 10px;
@@ -280,3 +279,9 @@ ul li.comment_list{
 
 #navcontainer li:hover ul.block li a{ margin-left: -20px; color: #271F17; }
 #navcontainer li:hover ul.block li a:hover{ background-color:#fff2cc; color: #0b0803; font-style: normal;}
+
+.time{
+  color: #8A4117;
+  font-style: italic;
+  font-weight: bold;
+}

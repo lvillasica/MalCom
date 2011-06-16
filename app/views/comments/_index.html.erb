@@ -19,6 +19,6 @@
 
 </div>
 <p>
-<%= link_to "Add Comment", new_ticket_comment_path(@ticket), :remote => true, :id => "add_commentlnk" if can? :create, Comment %>
-
+<%= link_to "Add Comment | ", new_ticket_comment_path(@ticket), :remote => true, :id => "add_commentlnk" if can? :create, Comment %>
+<%= link_to "Hide Comments", "#comments_container", :id => "hideComments" %>
 </p>

@@ -1,8 +1,8 @@
-<div id='project_details>
+<div id='project_details'>
   <h4>Overview</h4>
   <%= @project.description %>
   <br/><br/>
-  Ticket Summary: <br/>
+  <b>Ticket Summary:</b> <br/>
   Total Tickets: <%= @project.tickets.size %><br/>
   Open Tickets: <%= tickets_sum('open') %><br/>
   Resolved Tickets: <%= tickets_sum('resolved') %>

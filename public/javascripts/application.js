@@ -53,10 +53,16 @@ $(function() {
 
 });
 
-$(".hide").live('click', function() {
+$(".hideForm").live('click', function() {
   $("#add_commentlnk").hide().show(1000);
   $("#add_commentPane").slideUp(1000);
 });
+
+$("#hideComments").live('click', function() {
+  $("#commentslnk").hide().show(1000);
+  $("#comments_container").slideUp(1000);
+});
+
 
 
 

@@ -18,7 +18,8 @@
     <p class="fields">
   <% end %>
 </div>
-<%= link_to "Comments (#{@ticket.comments.size})", ticket_comments_path(@ticket), :remote => true, :id => "commentslnk" %>
+<%= link_to "View Comments", ticket_comments_path(@ticket), :remote => true, :id => "commentslnk" if can? :read, Comment %>
+<br /><br />
 <div id="comments_container">
   
 </div>
