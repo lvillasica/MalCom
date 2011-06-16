@@ -6,7 +6,9 @@ MalCom::Application.routes.draw do
     match '/logout' => 'devise/sessions#destroy'
   end
   
-  resources :users#, :controller => 'user'
+  resources :users
+  get 'user/:id/unlock', :to => 'users#unlock', :as => :unlock
+  
   resources :projects do
     member do
       get 'overview', :to => 'projects#overview'

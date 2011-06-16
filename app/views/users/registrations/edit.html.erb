@@ -48,16 +48,32 @@
     <p class="field">
       <%= f.label :birthdate %>
       <br />
-      <%= f.date_select :birthdate %>
+      <%= f.date_select :birthdate, {:order => [:month, :day, :year], :start_year => 2006 , :end_year => Time.now.year - 99}, :include_blank => false %>
     </p>
+    
     <p class="field">
       <%= f.label :status %>
-      <br />
-      <%= f.select :status, %w[Active Inactive Locked], {:selected => @resource.status} %>
+      <% if @resource.status.eql? 'Locked' %>
+        <i id="lock_status_notice" class="small notice">This user has been LOCKED!</i>
+        <div id="lock_details">
+          <p style='text-indent:30px'>Failed Attemps: <%= @resource.failed_attempts %></p>
+          <p style='text-indent:30px'>Locked on: <%= @resource.locked_at.to_s(:long) %></p>
+          <p style='text-indent:30px'><%= link_to 'Unlock this user', unlock_url(:id => @resource.id), :remote => true %></p>
+        </div>
+        <span id="unlocked" style="display: none" >
+          <br/>
+          <%= f.select :status, %w[Active Inactive], {:selected => @resource.status} %>
+        </span>
+      <% else %>
+        <br/>
+        <%= f.select :status, %w[Active Inactive], {:selected => @resource.status} %>
+      <% end %>
     </p>
 
     <% unless @resource.admin? %>
       <p class="fields">  
+        <%= f.label :role %>
+        <br/>
         <%= f.collection_select :role_id, Role.all, :id, :position %>
       </p>
     <% end %>

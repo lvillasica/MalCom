@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   has_many :tickets
   
   before_create :admin_role
-  #after_update :check_lock_status
+  after_update :check_lock_status
   #before_update :check_unlock_status
   
   def admin_role
@@ -25,16 +25,18 @@ class User < ActiveRecord::Base
   
   def check_lock_status
     unless self.locked_at.nil?
-      self.status = 'Locked'
+      unless self.status.eql? 'Locked'
+        self.status = 'Locked'
+        self.update_attributes(self)
+      end
     end
   end
   
-  def check_unlock_status
-    if not self.status.eql? 'Locked' and not self.locked_at.nil?
-      self.failed_attemps = 0
-      self.locked_at = nil
-      self.save
-    end
+  def clear_lock
+    self.failed_attempts = 0
+    self.locked_at = nil
+    self.status = 'Active'
+    self
   end
   
 end

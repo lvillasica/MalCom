@@ -17,6 +17,13 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
   
+  def unlock
+    @user.clear_lock
+    if @user.update_attributes(@user)
+      flash[:unlock_notice] = "#{@user.email}'s lock status reset!"
+    end
+  end
+  
   private
   
   def get_user
