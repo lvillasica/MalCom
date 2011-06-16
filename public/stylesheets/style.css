@@ -22,7 +22,7 @@ body{
 
 #header_content{
   padding: 10px;
-  margin: auto;
+  margin: 0 auto;
   width: 820px;
 }
 
@@ -54,7 +54,6 @@ body{
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-
 
 #title{
   font-weight: bold;
@@ -122,7 +121,6 @@ input[type="submit"]{
 }
 
 input[type="submit"]:hover{
-
   background-color: #FDC21E;
   border: 1px solid black;
   color: black;
@@ -170,40 +168,52 @@ table.role_assignments th {
 .odd { background-color: #FCE5B3; }
 .even{ background-color: #FFF2CC; }
 
-ul { width: 100%; }
-li {
+#main ul { width: 100%; }
+#main li {
   margin: 3px auto;
   list-style: none;
   display: inline-block;
   min-width: 200px;
 }
-ul:hover { background-color: #fce5b3;}
 
 #user_projects_container {
   padding: 0;
   margin: 10px auto;
-  width: 100%;
+  width: 50%;
   float: left;
-  display: block;
+  left: 50%;
 }
 
 #head {
   clear: both;
-  padding: 10px;
+  padding: 10px 25px;
   color: #FFF2CC;
   background-image: -moz-linear-gradient(top, #3B2A14, #000);
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#3B2A14), to(#000000));
-  text-align: center;
   -mox-border-radius: 5px 5px 0 0;
   -webkit-border-radius: 5px 5px 0 0;
   border-radius: 5px 5px 0 0;
 }
 
-#user_projects {
-  padding: 10px 250px;
-  font-size: 16px;
-  background-color: #f3ecbe;
+#head p { display: block;}
+#head p a { 
+  display: block; 
+  background-color: #ffefe3; 
+  padding: 5px; 
+  -mox-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
+
+#head p a:hover {background-color: white; }
+
+#user_projects {
+  padding: 0;
+  background-color: #ffefe3;
+}
+
+#user_projects_container .block a { display: block; padding: 10px 30px; }
+#user_projects_container .block a:hover { background-color: #ffe8d6; }
 
 .critical{ background-color: #FF8080; }
 .small { font-size: 10px;}
@@ -219,3 +229,54 @@ ul li.comment_list{
   list-style-type: none;
   background-color: #BDA674;
 }
+
+#header_content #title { display: inline-block; width: 200px; }
+
+#navcontainer {
+  display: inline;
+  float: right;
+  width: 70%;
+}
+
+#navcontainer ul#nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#navcontainer ul#nav li {
+  float: right;
+  position: relative;
+  width: 70px;
+  text-align: center;
+}
+
+#navcontainer ul#nav li a {
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+}
+
+#navcontainer li ul {
+  display: none;
+  list-style: none;
+  position: absolute;
+  width: 50px;
+  top: 0;
+  left: 0;
+}
+
+#navcontainer li>ul {
+  top: auto;
+  left: auto;
+}
+
+#navcontainer  li:hover ul {
+  display: inline;
+  color: #0f0a05;
+  background-color: rgba(252, 229, 179, 0.5);
+  background-color: rgb(252, 229, 179);  
+}
+
+#navcontainer li:hover ul.block li a{ margin-left: -20px; color: #271F17; }
+#navcontainer li:hover ul.block li a:hover{ background-color:#fff2cc; color: #0b0803; font-style: normal;}

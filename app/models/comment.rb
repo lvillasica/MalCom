@@ -11,4 +11,5 @@ class Comment < ActiveRecord::Base
     @user = @user.email
   end
 
+
 end

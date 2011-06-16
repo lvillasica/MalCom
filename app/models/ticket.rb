@@ -3,11 +3,13 @@ class Ticket < ActiveRecord::Base
   belongs_to :project
   has_many :tags
   accepts_nested_attributes_for :tags
-  #belongs_to :tags
-  #belongs_to :tags
-  #has_and_belongs_to_many :tags
+
   has_many :comments
-  #has_many_and_belongs_to :tags
+  
+  validates_presence_of :ticket_name, :ticket_description
+  validates_inclusion_of :status, :in => %w(Open, Assigned, In-progress, Resolved, Reopened)
+  validates_inclusion_of :priority, :in => %w(Minor, Major, Normal, Critical)
+  validates_numericality_of :logged_time
   
   before_save :get_assigned
   

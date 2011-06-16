@@ -3,13 +3,17 @@
 <p class='notice'><%= flash[:error] if flash[:error] %></p>
 <% if user_signed_in? %>
   <div id='user_projects_container'>
-    <div id='head'>Your projects</div>
-    <div id='user_projects'>
-      <% @projects.each do |project| %>
-        <p><%= link_to project.project_name, project_path(project) %></p>
-      <% end %>
+    <div id='head'>
+      <p>Your projects <i>(<%= @projects.count %>)</i>
+        <span class="rfloat"><%= link_to_if(can?(:create, Project), 'Add Project', new_project_path) {} %></span>
+      </p>
+    </div>
+    <% @projects.each do |project| %>
+      <div id='user_projects' class='block'>
+        <%= link_to project.project_name.upcase, project_path(project) %>
+      </div>
+    <% end %>
     </div>
   </div>
 <% end %>
 <br/><br/>
-<%= link_to_if(can?(:create, Project), 'Add Project', new_project_path) {} %>

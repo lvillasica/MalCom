@@ -1,4 +1,8 @@
 <h3>Users</h3>
+<br />
+<%= link_to 'Add User', new_user_registration_path %> |
+<%= link_to 'View Roles', roles_path %>
+<br/><br/>
 <table>
 <tr>
 <th width='20%'>Username</th>
@@ -20,6 +24,3 @@
   </tr>
 <% end  %>
 </table>
-<br /><br/>
-<%= link_to 'Add User', new_user_registration_path %> |
-<%= link_to 'View Roles', roles_path %>

@@ -10,18 +10,27 @@ class User < ActiveRecord::Base
                   :username, :last_name, :first_name, :middle_name, :birthdate, :status, :admin, :role_id, :id
   
   validates_inclusion_of :status, :in => %w(Active Inactive Locked)
-  
+    
   has_one :role
   has_and_belongs_to_many :projects
   has_many :tickets
   has_many :comments
   
   before_create :admin_role
+  before_save :lock_if_locked
   after_update :check_lock_status
-  #before_update :check_unlock_status
   
   def admin_role
+    puts "1 hehe"
     self.role_id = 0 if self.admin?
+  end
+  
+  def lock_if_locked
+    puts "2 hehe"
+    if self.new_record? and self.status.eql? 'Locked' and self.locked_at.nil? and self.failed_attempts < 4
+      self.locked_at = Time.now
+      self.failed_attempts =4
+    end
   end
   
   def check_lock_status
