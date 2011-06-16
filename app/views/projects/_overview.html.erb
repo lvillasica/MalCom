@@ -1,10 +1,10 @@
-<h3>Overview</h3>
-<p>
-<%= @project.description %>
-</p>
-<h4>Ticket Summary</h4>
-<ul>
-<li>
-  <b>Total Tickets: </b><%= @project.tickets.size %>
-</li>
-</ul>
+<div id='project_details>
+  <h4>Overview</h4>
+  <%= @project.description %>
+  <br/><br/>
+  Ticket Summary: <br/>
+  Total Tickets: <%= @project.tickets.size %><br/>
+  Open Tickets: <%= tickets_sum('open') %><br/>
+  Resolved Tickets: <%= tickets_sum('resolved') %>
+  
+</div>
