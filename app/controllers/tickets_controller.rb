@@ -6,6 +6,10 @@
   
   def index
     @tickets = @project.tickets.search(params[:date], params[:assigned_to], params[:status], params[:priority])
+    if @tickets.blank?
+      @tickets = @project.tickets 
+      flash[:notice] = "No match found..."
+    end
   end
   
   def new

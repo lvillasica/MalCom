@@ -148,7 +148,7 @@ table th{
   color: #FFF2CC;
   height: 30px;
   background-image: -moz-linear-gradient(top, #3B2A14, #000);
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(##3B2A14), to(#000000));
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#3B2A14), to(#000000));
 }
 
 table.role_assignments {
@@ -192,7 +192,7 @@ ul:hover { background-color: #fce5b3;}
   padding: 10px;
   color: #FFF2CC;
   background-image: -moz-linear-gradient(top, #3B2A14, #000);
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(##3B2A14), to(#000000));
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#3B2A14), to(#000000));
   text-align: center;
   -mox-border-radius: 5px 5px 0 0;
   -webkit-border-radius: 5px 5px 0 0;

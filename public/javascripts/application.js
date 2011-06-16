@@ -47,7 +47,9 @@ $(function() {
 
   $("#proj_list").change(function(){
     if($(this).val()!="")window.location = $(this).val();  
-  });  
+  }); 
+  
+  $("#main").hide().fadeIn("slow"); 
 
 });
 

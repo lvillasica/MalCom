@@ -13,12 +13,12 @@
   <%= select_tag "priority", options_for_select(['Priority', 'Minor', 'Normal', 'Major', 'Critical']) %>
   </span>
   <span class="fields">
-  <%= submit_tag "Filter", :date => nil, :status => nil, :priority => nil %>
+  <%= submit_tag "Filter", :date => nil, :assigned_to => nil, :status => nil, :priority => nil %>
   </span>
 <% end %>
 <hr />
-<% if @tickets.empty? %>
-  <p id="notice">No match found<%= notice %></p>
+<% if @tickets.blank? %>
+  <p id="notice"><%= notice %></p>
 <% end %>
 <table>
 <tr>
