@@ -5,11 +5,7 @@
   load_and_authorize_resource
   
   def index
-    @tickets = @project.tickets.search(params[:date], params[:assigned_to], params[:status], params[:priority])
-    if @tickets.blank?
-      @tickets = @project.tickets 
-      flash[:notice] = "No match found..."
-    end
+    @tickets = @project.tickets.search(params[:date], params[:assigned_to], params[:status], params[:priority])  
   end
   
   def new

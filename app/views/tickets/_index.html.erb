@@ -18,8 +18,8 @@
 <% end %>
 <hr />
 <% if @tickets.blank? %>
-  <p id="notice"><%= notice %></p>
-<% end %>
+  <p id="notice">No match found...</p>
+<% else %>
 <table>
 <tr>
 <th width='10%'>Ticket Name</th>
@@ -52,3 +52,4 @@
 <%# end %>
 <% end %>
 </table>
+<% end %>
