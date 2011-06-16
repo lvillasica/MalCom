@@ -1,0 +1,17 @@
+/*if($("#add_commentlnk").html() == "Add Comment"){
+  $("#add_commentlnk").html("");
+  $("#add_commentlnk").removeAttr("data-remote");
+  $("#add_commentlnk").html("<%= escape_javascript(link_to "Hide Form", "#add_commentPane", :class => "hide") %>")
+  //$("#add_commentlnk").attr("href", "#add_commentPane");
+  //$("#add_commentlnk").attr("data-remote", "");
+  //$("#add_commentlnk").attr("class", "hide");
+}else{
+  $("#add_commentlnk").html("");
+  $("#add_commentlnk").html("Add Comment");
+  $("#add_commentlnk").attr("data-remote", "true");
+  $("#add_commentlnk").attr("href", "<%= escape_javascript(new_ticket_comment_path(@ticket)) %>");
+}*/
+$("#add_commentPane").html("<%= escape_javascript(render :partial => 'new')%>").hide().show(1000);
+$("#add_commentlnk").hide();
+
+

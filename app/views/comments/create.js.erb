@@ -1,0 +1,4 @@
+$("#comments_ul li.comment_list:last").hide();
+$("#comments_container").html("<%= escape_javascript(render :partial => 'index')%>").show('slow');
+$("#comments_ul li.comment_list:last").hide().fadeIn(1000);
+$("#commentslnk").html("Comments (<%= escape_javascript(@ticket.comments.size) %>)");

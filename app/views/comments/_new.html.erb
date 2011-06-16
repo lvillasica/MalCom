@@ -1,0 +1,12 @@
+<%= form_for @comment, :url => ticket_comments_url(@ticket), :remote => true do |f| %>
+  
+  <p class="fields">
+    <%= f.text_area :comment %>
+  </p>
+
+  <p class="fields">
+    <%= f.submit "Add Comment" %>
+  </p>
+
+<% end %>
+<%= link_to "Hide Form", "#add_commentPane", :class => "hide" %>

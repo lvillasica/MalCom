@@ -6,7 +6,7 @@ class Ticket < ActiveRecord::Base
   #belongs_to :tags
   #belongs_to :tags
   #has_and_belongs_to_many :tags
-  #has_many :comments
+  has_many :comments
   #has_many_and_belongs_to :tags
   
   before_save :get_assigned

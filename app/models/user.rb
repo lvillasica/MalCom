@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_one :role
   has_and_belongs_to_many :projects
   has_many :tickets
+  has_many :comments
   
   before_create :admin_role
   after_update :check_lock_status

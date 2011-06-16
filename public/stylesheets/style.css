@@ -209,3 +209,13 @@ ul:hover { background-color: #fce5b3;}
 .small { font-size: 10px;}
 .notice { color: #ce1414; }
 .rfloat { float: right; }
+
+ul li.comment_list{
+  -moz-border-radius: 10px;
+  -moz-box-shadow:inset 0px 0px 20px;
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 10px;
+  list-style-type: none;
+  background-color: #BDA674;
+}

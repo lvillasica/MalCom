@@ -1,0 +1,24 @@
+<hr />
+<h1>Comments</h1>
+<hr />
+<ul id="comments_ul">
+<% @comments.each do |comment| %>
+  <li class="comment_list">
+    <%= comment.get_user %> &raquo; 
+    <span class="time"><%= time_ago_in_words(comment.created_at) %> ago</span>
+    <ul>
+      <li>
+      <p class="comments"><%= comment.comment %></p>
+      </li>
+    </ul>
+    <p><%= link_to "Delete", ticket_comment_path(@ticket, comment), :method => :delete, :confirm => "Are you sure?", :remote => true if can? :destroy, Comment and comment.user_id.eql?(current_user.id) %></p>
+  </li>
+<% end %>
+</ul>
+<div id="add_commentPane">
+
+</div>
+<p>
+<%= link_to "Add Comment", new_ticket_comment_path(@ticket), :remote => true, :id => "add_commentlnk" if can? :create, Comment %>
+
+</p>
