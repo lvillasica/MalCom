@@ -17,6 +17,11 @@ MalCom::Application.routes.draw do
       post 'tags', :to => 'tags#create'
     end
   end
+
+  resources :tickets do
+    resources :comments
+  end
+
   get 'admin/projects', :to => 'projects#projects'
   
   resources :roles
