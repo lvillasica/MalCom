@@ -1,3 +1,7 @@
-$("#lock_status_notice").html("<%= escape_javascript(flash[:unlock_notice]) %>");
-$("#lock_details").hide();
-$("#unlocked").attr("style", "display: block;" )
+<% if flash[:unlock_notice] %>
+  $("#lock_status_notice").html("<%= escape_javascript(flash[:unlock_notice]) %>");
+  $("#lock_details").hide();
+  $("#unlocked").attr("style", "display: block;" )
+<% else %>
+  $("#lock_status_notice").html("<%= escape_javascript(flash[:unlock_error]) %>");
+<% end %>

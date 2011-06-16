@@ -23,8 +23,12 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(params[:project])
     
-    @project.save
-    redirect_to projects_path
+    if @project.save
+      redirect_to projects_path
+      flash[:project_notice] = "#{@project.name} added."
+    else
+      render :new
+    end
   end
   
   def projects
@@ -35,8 +39,11 @@ class ProjectsController < ApplicationController
   end
   
   def update
-    @project.update_attributes(params[:project])
-    redirect_to admin_projects_path
+    if @project.update_attributes(params[:project])
+      redirect_to admin_projects_path
+    else
+      render :edit
+    end
   end
     
   def destroy

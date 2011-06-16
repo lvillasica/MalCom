@@ -14,8 +14,11 @@ class RolesController < ApplicationController
   
   def create
     @role = Role.new(params[:role])
-    @role.save
-    redirect_to roles_path
+    if @role.save
+      redirect_to roles_path
+    else
+      render :new
+    end
   end
   
   def show
@@ -25,8 +28,11 @@ class RolesController < ApplicationController
   end
   
   def update
-    @role.update_attributes(params[:role])
-    redirect_to roles_path
+    if @role.update_attributes(params[:role])
+      redirect_to roles_path
+    else
+      render :edit
+    end
   end
   
   def destroy

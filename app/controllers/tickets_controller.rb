@@ -2,6 +2,7 @@
   
   before_filter :get_project
   before_filter :get_ticket, :only => [:show, :edit, :update, :destroy]
+  respond_to :js
   load_and_authorize_resource
   
   def index
@@ -16,8 +17,11 @@
   def create
     @ticket = @project.tickets.new(params[:ticket])
     @ticket.tags.build(@ticket.separate_tags(@project.id, params[:tags][:label]))
-    @ticket.save
-    redirect_to project_tickets_path(@project)
+    if @ticket.save
+      redirect_to project_tickets_path(@project)
+    else
+      render :new
+    end
   end
   
   def show
@@ -30,6 +34,8 @@
     @ticket.update_tags(params[:tags][:label], @ticket.tags)
     if @ticket.update_attributes(params[:ticket])
       redirect_to project_tickets_path(@project)
+    else
+      render :edit
     end
   end
   

@@ -30,8 +30,8 @@
 <%= f.select :assigned_to, options_from_collection_for_select(@project.users, 'id', 'email') %>
 </p>
 <p class="fields">
-<%= f.label :logged_time %><br />
-<%= f.text_field :logged_time %>
+<%= f.label :logged_time %>  <i class= "small notice">input number of hours</i> 
+<%= f.text_field :logged_time, :size => '10' %>
 </p>
 <p class="fields">
 <%= f.label :tracker_type %><br />

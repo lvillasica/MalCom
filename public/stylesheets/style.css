@@ -239,7 +239,7 @@ table.role_assignments th {
 
 #navcontainer ul#nav {
   list-style: none;
-  padding: 0;
+  padding: 7px;
   margin: 0;
 }
 
@@ -285,3 +285,23 @@ table.role_assignments th {
   font-style: italic;
   font-weight: bold;
 }
+
+#error_explanation {
+  width: 350px;
+  margin: 0 auto;
+  margin-bottom: 10px; 
+  padding: 5px;
+  border-top: 20px;
+  border-bottom: 1px;
+  border-left: 1px;
+  border-right: 1px;
+  border-style: solid;
+  border-color: #ff636c;
+}
+
+#error_explanation h2 {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#error_explanation ul li { font-size: 12px; color: #ff282b}

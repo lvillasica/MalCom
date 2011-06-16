@@ -21,6 +21,8 @@ class UsersController < ApplicationController
     @user.clear_lock
     if @user.update_attributes(@user)
       flash[:unlock_notice] = "#{@user.email}'s lock status reset!"
+    else
+      flash[:unlock_error] = "#{@user.email}'s lock status not reset!"
     end
   end
   

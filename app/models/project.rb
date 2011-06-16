@@ -4,6 +4,6 @@ class Project < ActiveRecord::Base
   has_many :tickets
   has_many :tags, :through => :tickets
   
-  validates_presence_of :project_name, :project_description
+  validates_presence_of :project_name, :description
   
 end

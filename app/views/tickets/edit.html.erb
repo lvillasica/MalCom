@@ -1,17 +1,24 @@
-<h1>Edit Story</h1>
-<%= form_for @ticket, :url => project_ticket_url do |f| %>
-  <%= render :partial => 'form' , :locals => {:f => f} %>
+<div class='formcontainer'>
+  <h1><%= @ticket.ticket_name %> [Edit]</h1>
+  <%= form_for @ticket, :url => project_ticket_url, :remote => true do |f| %>
+    <%= render :partial => 'form' , :locals => {:f => f} %>
+    
+    <% if can? :update, Tag %>
+      <p id='tags' class='fields'>
+        <%= fields_for :tags do |builder| %>
+          <%= f.label :tags %>  <i class= "small notice">use comma to separate tags</i> 
+          <%= builder.text_field :label , :value => show_tags %>
+        <% end -%>
+      </p>
+    <% end %>
 
-  <% if can? :update, Tag %>
-    <p id='tags' class='fields'>
-      <%= fields_for :tags do |builder| %>
-        <% tags = show_tags %>
-        Tags: <%= builder.text_field :label, :value => tags %> <span class= "small notice">use comma to separate tags</span>
-      <% end -%>
-    </p>
+    <p class="fields">
+    <%= f.submit %>
+    <p class="fields">
   <% end %>
+</div>
+<%= link_to "Comments (#{@ticket.comments.size})", ticket_comments_path(@ticket), :remote => true, :id => "commentslnk" %>
+<div id="comments_container">
+  
+</div>
 
-  <p class="fields">
-  <%= f.submit %>
-  <p class="fields">
-<% end %>

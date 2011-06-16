@@ -6,9 +6,8 @@
     <% if can? :update, Tag %>
       <p id='tags' class='fields'>
         <%= fields_for :tags do |builder| %>
-          <% show_tags %>
           <%= f.label :tags %>  <i class= "small notice">use comma to separate tags</i> 
-          <%= builder.text_field :label %>
+          <%= builder.text_field :label , :value => show_tags %>
         <% end -%>
       </p>
     <% end %>

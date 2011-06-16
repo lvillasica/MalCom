@@ -5,11 +5,11 @@ class Ticket < ActiveRecord::Base
   accepts_nested_attributes_for :tags
 
   has_many :comments
-  
-  #validates_presence_of :ticket_name, :ticket_description
-  #validates_inclusion_of :status, :in => %w(Open, Assigned, In-progress, Resolved, Reopened)
-  #validates_inclusion_of :priority, :in => %w(Minor, Major, Normal, Critical)
-  #validates_numericality_of :logged_time
+
+  validates_presence_of :ticket_name, :ticket_description
+  validates_inclusion_of :status, :in => %w(Open Assigned In-progress Resolved Reopened)
+  validates_inclusion_of :priority, :in => %w(Minor Major Normal Critical)
+  validates_numericality_of :logged_time
   
   before_save :get_assigned
   
@@ -27,7 +27,7 @@ class Ticket < ActiveRecord::Base
   
   
   def update_tags(labels, tags)
-    # murag hard code kaayo ni na part :[
+    # murag HUGAW code kaayo ni na part :[
     labels = labels.split(',')
     tags.each do |tag|
       if labels.empty?
