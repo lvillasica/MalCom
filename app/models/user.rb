@@ -21,12 +21,10 @@ class User < ActiveRecord::Base
   after_update :check_lock_status
   
   def admin_role
-    puts "1 hehe"
     self.role_id = 0 if self.admin?
   end
   
   def lock_if_locked
-    puts "2 hehe"
     if self.new_record? and self.status.eql? 'Locked' and self.locked_at.nil? and self.failed_attempts < 4
       self.locked_at = Time.now
       self.failed_attempts =4

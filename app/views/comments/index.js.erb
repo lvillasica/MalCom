@@ -1,2 +1,3 @@
 $("#comments_container").html("<%= escape_javascript(render :partial => 'index')%>").hide().show(1000);
+document.getElementById("comments_container").scrollIntoView();
 $("#commentslnk").hide();
