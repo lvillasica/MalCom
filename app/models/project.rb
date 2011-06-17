@@ -5,5 +5,6 @@ class Project < ActiveRecord::Base
   has_many :tags, :through => :tickets
   
   validates_presence_of :project_name, :description
+  validates_inclusion_of :status, :in => %w(Active Status)
   
 end

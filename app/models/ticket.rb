@@ -9,6 +9,7 @@ class Ticket < ActiveRecord::Base
   validates_presence_of :ticket_name, :ticket_description
   validates_inclusion_of :status, :in => %w(Open Assigned In-progress Resolved Reopened)
   validates_inclusion_of :priority, :in => %w(Minor Major Normal Critical)
+  validates_inclusion_of :tracker_type, :in => %w(Bug Task)
   validates_numericality_of :logged_time
   
   before_save :get_assigned
