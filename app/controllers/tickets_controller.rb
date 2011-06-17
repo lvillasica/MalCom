@@ -2,12 +2,16 @@
   
   before_filter :get_project
   before_filter :get_ticket, :only => [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
   respond_to :js
+  load_and_authorize_resource
   
   def index
-    @is_resolved = true if params[:status].eql? "Resolved"
-    @tickets = @project.tickets.search(params[:date], params[:assigned_to], params[:status], params[:priority])
+    #if params[:tag_label]
+    #  @tags = @project.tags.where('label = ?', params[:tag_label])
+    #else
+      @is_resolved = true if params[:status].eql? "Resolved"
+      @tickets = @project.tickets.search(params[:date], params[:assigned_to], params[:status], params[:priority])
+    #end
   end
   
   def new
@@ -17,7 +21,7 @@
   
   def create
     @ticket = @project.tickets.new(params[:ticket])
-    @ticket.tags.build(@ticket.separate_tags(@project.id, params[:tags][:label]))
+    @ticket.tags = @project.tags.build(@ticket.separate_tags(@project.id, params[:tags][:label]))
     if @ticket.save
       redirect_to project_tickets_path(@project)
     else

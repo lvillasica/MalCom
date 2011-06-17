@@ -1,7 +1,7 @@
 class Ticket < ActiveRecord::Base
 
   belongs_to :project
-  has_many :tags
+  has_and_belongs_to_many :tags
   accepts_nested_attributes_for :tags
 
   has_many :comments
@@ -18,14 +18,13 @@ class Ticket < ActiveRecord::Base
     assigned = User.find(self.assigned_to).email
   end
   
-  def separate_tags(project_id, labels)
+   def separate_tags(project_id, labels)
     separated_tags = []
     labels.split(',').each do |tag|
       separated_tags << {:project_id => project_id, :label => tag.strip}
     end
     separated_tags
   end
-  
   
   def update_tags(labels, tags)
     # murag HUGAW code kaayo ni na part :[
@@ -34,7 +33,7 @@ class Ticket < ActiveRecord::Base
       if labels.empty?
         tag.destroy
       else
-        tag.update_attributes(:label => labels[0].strip, :project_id => self.project_id, :ticket_id => self.id)
+        tag.update_attributes(:label => labels[0].strip, :project_id => self.project_id)
         labels.delete_at(0)
       end
     end
@@ -51,5 +50,4 @@ class Ticket < ActiveRecord::Base
          "#{date}%", assigned_to.to_i, "#{status}%", "#{priority}%") 
     end
   end
-
 end

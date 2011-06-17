@@ -60,9 +60,13 @@ ActiveRecord::Schema.define(:version => 20110615070529) do
   create_table "tags", :force => true do |t|
     t.string   "label"
     t.integer  "project_id"
-    t.integer  "ticket_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "tags_tickets", :id => false, :force => true do |t|
+    t.integer "tag_id"
+    t.integer "ticket_id"
   end
 
   create_table "tickets", :force => true do |t|

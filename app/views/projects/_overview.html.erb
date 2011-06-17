@@ -22,11 +22,9 @@
     </tr>
   </table>
   
-  <% if can? :read, @tags %>
-    <h4>Tags</h4>
-    <% @tags.each do |tag| %>
-      <%= link_to tag.label, project_tickets_path(@project.id, :tag_label => tag.label )%><br/>
-    <% end %>
+  <h4>Tags</h4>
+  <% @tags.each do |tag| %>
+    <%= link_to tag.label, project_tickets_path(@project.id, :tag_label => tag.label ), :remote => true %><br/>
   <% end %>
   
 </div>

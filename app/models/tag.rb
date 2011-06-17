@@ -1,7 +1,18 @@
 class Tag < ActiveRecord::Base
 
   belongs_to :project
-  belongs_to :ticket
-  #has_and_belongs_to_many :tickets, :join_table => "tags"
-
+  has_and_belongs_to_many :tickets
+  
+  before_create :testing
+  before_save :check
+  
+  
+  def testing
+    puts "una ko testing"
+  end
+  
+  def check
+    Tag.find_or_create_by_label_and_project_id(self.label, self.project_id)
+    puts self.inspect
+  end
 end
