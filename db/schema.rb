@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(:version => 20110615070529) do
     t.integer "project_id"
   end
 
+  add_index "projects_users", ["user_id", "project_id"], :name => "index_projects_users_on_user_id_and_project_id"
+
   create_table "roles", :force => true do |t|
     t.string   "position"
     t.boolean  "can_create_project"
@@ -68,6 +70,8 @@ ActiveRecord::Schema.define(:version => 20110615070529) do
     t.integer "tag_id"
     t.integer "ticket_id"
   end
+
+  add_index "tags_tickets", ["tag_id", "ticket_id"], :name => "index_tags_tickets_on_tag_id_and_ticket_id"
 
   create_table "tickets", :force => true do |t|
     t.string   "ticket_name"

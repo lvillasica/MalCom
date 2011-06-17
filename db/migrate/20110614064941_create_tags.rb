@@ -10,7 +10,9 @@ class CreateTags < ActiveRecord::Migration
     create_table :tags_tickets, :id => false do |t|
       t.integer :tag_id
       t.integer :ticket_id
-    end 
+    end
+    
+    add_index(:tags_tickets, [:tag_id, :ticket_id])
   end
 
   def self.down
