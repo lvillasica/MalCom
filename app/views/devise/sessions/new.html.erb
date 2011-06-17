@@ -1,6 +1,7 @@
 <div class="formcontainer" id="login">
   <h2>Sign in</h2>
-
+  
+  <p class='critical'><%= flash[:alert] if flash[:alert] %></p>
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   
   <p>

@@ -12,6 +12,6 @@ Role.create(:position => 'default',
             :can_create_ticket => false, :can_read_ticket => false, :can_update_ticket => false, :can_delete_ticket => false,
             :can_create_comment => false, :can_read_comment => false, :can_delete_comment => false,
             :can_create_tag => false, :can_read_tag => false, :can_update_tag => false, :can_delete_tag => false,
-            :can_add_member => false, :can_remove_member => false, :can_assign_ticket => false)
+            :can_add_member => false, :can_remove_member => false, :can_assign_ticket => false).readonly!
 
 

@@ -21,7 +21,7 @@ class Ticket < ActiveRecord::Base
    def separate_tags(project_id, labels)
     separated_tags = []
     labels.split(',').each do |tag|
-      separated_tags << {:project_id => project_id, :label => tag.strip}
+      separated_tags << {:label => tag.strip, :project_id => project_id}
     end
     separated_tags
   end
@@ -33,11 +33,11 @@ class Ticket < ActiveRecord::Base
       if labels.empty?
         tag.destroy
       else
-        tag.update_attributes(:label => labels[0].strip, :project_id => self.project_id)
+        tag.update_attributes(:label => labels[0].strip, :project_id => project_id)
         labels.delete_at(0)
       end
     end
-    self.tags_attributes = separate_tags(self.project_id, labels.join(',').to_s) unless labels.empty?
+    self.tags_attributes = separate_tags(project_id, labels.join(',').to_s) unless labels.empty?
   end
 
   def self.search(date, assigned_to, status, priority)

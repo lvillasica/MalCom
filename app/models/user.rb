@@ -21,19 +21,19 @@ class User < ActiveRecord::Base
   after_update :check_lock_status
   
   def admin_role
-    self.role_id = 0 if self.admin?
+    self.role_id = 0 if admin?
   end
   
   def lock_if_locked
-    if self.new_record? and self.status.eql? 'Locked' and self.locked_at.nil? and self.failed_attempts < 4
+    if new_record? and status.eql? 'Locked' and locked_at.nil? and failed_attempts < 4
       self.locked_at = Time.now
       self.failed_attempts =4
     end
   end
   
   def check_lock_status
-    unless self.locked_at.nil?
-      unless self.status.eql? 'Locked'
+    unless locked_at.nil?
+      unless status.eql? 'Locked'
         self.status = 'Locked'
         self.update_attributes(self)
       end
