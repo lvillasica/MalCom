@@ -11,7 +11,7 @@ module ProjectsHelper
   def total_logtimes
     tickets = @project.tickets.find(:all)
     logtimes = 0
-    tickets.each { |ticket| logtimes += ticket.logged_time}
-    logtimes
+    tickets.each { |ticket| logtimes += ticket.logged_time if ticket.logged_time }
+    return logtimes
   end
 end

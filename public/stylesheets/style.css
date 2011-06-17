@@ -306,3 +306,5 @@ table.role_assignments th {
 }
 
 #error_explanation ul li { font-size: 12px; color: #ff282b;}
+
+table.overview { width: 250px; }

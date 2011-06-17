@@ -2,10 +2,31 @@
   <h4>Overview</h4>
   <%= @project.description %>
   <br/><br/>
-  <b>Ticket Summary:</b> <br/>
-  Total Tickets: <%= @project.tickets.size %><br/>
-  Open Tickets: <%= tickets_sum('open') %><br/>
-  Resolved Tickets: <%= tickets_sum('resolved') %><br/>
-  Total Logtimes: <%= total_logtimes %> hours
+  <table class='overview'>
+    <tr><th colspan='2'>Ticket Summary</th></tr>
+    <tr class='odd'>
+      <td>Open Tickets</td>
+      <td><%= tickets_sum('open') %></td>
+    </tr>
+    <tr class='even'>
+      <td>Resolved Tickets</td>
+      <td><%= tickets_sum('resolved') %></td>
+    </tr>
+    <tr class='critical'>
+      <td>Total Tickets</td>
+      <td><%= @project.tickets.size %></td>
+    </tr>
+    <tr class='even'>
+      <td>Total Logtimes</td>
+      <td><%= total_logtimes %> hours</td>
+    </tr>
+  </table>
+  
+  <% if can? :read, @tags %>
+    <h4>Tags</h4>
+    <% @tags.each do |tag| %>
+      <%= link_to tag.label, project_tickets_path(@project.id, :tag_label => tag.label )%><br/>
+    <% end %>
+  <% end %>
   
 </div>

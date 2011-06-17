@@ -20,6 +20,10 @@ class ProjectsController < ApplicationController
   def overview
   end
   
+  def show
+    @tags = @project.tags
+  end
+  
   def create
     @project = Project.new(params[:project])
     
@@ -66,6 +70,8 @@ class ProjectsController < ApplicationController
   
   def get_project
     @project = Project.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_url
   end
 
 end
