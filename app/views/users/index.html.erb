@@ -18,8 +18,8 @@
   <td><%= user.email %></td>
   <td><%= user.status %></td>
   <td>
-    <%= link_to 'Edit', edit_user_registration_path(:id => user) %> |
-    <%= link_to 'Delete', user_path(user), :confirm => 'Delete?', :method => :delete %>
+    <%= link_to 'Edit', edit_user_registration_path(:id => user) unless user.readonly? %> |
+    <%= link_to 'Delete', user_path(user), :confirm => 'Delete?', :method => :delete unless user.readonly? %>
   </td>
   </tr>
 <% end  %>

@@ -5,8 +5,8 @@
     <li><%= role.position.humanize %></li>
     <li>
       <%= link_to "Show", role %>
-      <%= link_to "Edit", edit_role_path(role) %>
-      <%= link_to "Delete", role, :confirm => 'Delete?', :method => :delete %>
+      <%= link_to "Edit", edit_role_path(role) unless role.readonly? %>
+      <%= link_to "Delete", role, :confirm => 'Delete?', :method => :delete  unless role.readonly? %>
     </li>
   </ul>
 <% end %>
