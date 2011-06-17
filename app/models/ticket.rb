@@ -42,7 +42,7 @@ class Ticket < ActiveRecord::Base
   end
 
   def self.search(date, assigned_to, status, priority)
-    date = "" if date == Time.now.to_date
+    #date = "" if date == Time.now.to_date
     if assigned_to.to_i.eql?(0)
     where("created_at LIKE ? and status LIKE ? and priority LIKE ?", 
          "#{date}%", "#{status}%", "#{priority}%")

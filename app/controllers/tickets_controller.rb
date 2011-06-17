@@ -2,8 +2,8 @@
   
   before_filter :get_project
   before_filter :get_ticket, :only => [:show, :edit, :update, :destroy]
-  respond_to :js
   load_and_authorize_resource
+  respond_to :js
   
   def index
     @is_resolved = true if params[:status].eql? "Resolved"

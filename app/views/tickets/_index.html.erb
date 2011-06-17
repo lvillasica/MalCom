@@ -43,7 +43,7 @@
     <td><%= ticket.priority %></td>
     <td><%= ticket.get_assigned %></td>
     <td><%= ticket.created_at.to_date %></td>
-    <td><%= ticket.logged_time %></td>
+    <td><%= ticket.logged_time %> hours</td>
     <td><%= ticket.tracker_type %></td>
     <td>
       <%= link_to_if(can?(:destroy, ticket), "Delete", project_ticket_path(@project,ticket), :confirm => "Delete?", :method => :delete, :remote => true) %>

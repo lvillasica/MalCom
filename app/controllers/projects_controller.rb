@@ -55,15 +55,15 @@ class ProjectsController < ApplicationController
     redirect_to admin_projects_path
   end
 
-  def remove_member
-    @member = User.find(params[:user_id])
-    @project = @member.projects.find(params[:id])
+  def add_member
+    #@member = User.find(params[:user_id])
+    #@project = @member.projects.find(params[:id])
 
-    if @project
-      @member.projects.delete(@project)
-    end    
-  
-    redirect_to @project
+    #if @project
+    #  @member.projects.delete(@project)
+    #end
+    @project.update_attributes(params[:project])    
+    redirect_to members_project_path(@project)
   end
   
   private

@@ -13,7 +13,7 @@ MalCom::Application.routes.draw do
     member do
       get 'overview', :to => 'projects#overview'
       get 'members', :to => 'projects#members'
-      delete 'members', :to => 'projects#remove_member'
+      put 'add_members', :to => 'projects#add_member'
     end
     resources :tickets do
       post 'tags', :to => 'tags#create'
